@@ -1,13 +1,17 @@
 #include<iostream>
 #include "Map.hpp"
 
-int main(int, char**) {
+int main(int, char **) {
 
   srand(time(0));
 
-  Map m(12,12);
+  Map m(36, 24);
 
-  m.GenerateMap();
+  m.GenerateAllMap();
+  m.PrintMap();
+  m.GenerateHalfMap();
+  m.PrintMap();
+  m.GenerateQuarterMap();
   m.PrintMap();
   return 0;
 }
