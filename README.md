@@ -18,7 +18,7 @@ g++ -Wall -Wextra -g -o exec Object.cpp Iplaceable.cpp Box.cpp Sun.cpp Map.cpp t
 - [x] Ajout Map soleil
 - [x] Ajout Map Box
 - [x] Width et Height valide
-- [x] S'assurer que le nbr de box et de suns soit cohérent avec la génération choisie (2 ou 4)
+- [x] S'assurer que le nbr de boxs et de suns soit cohérent avec la génération choisie (2 ou 4)
 - [ ] S'assurer qu'il y a assez d'espace pour poser les boxs et suns
 - [ ] Ajout Map objet
 - [ ] Ajout joueur sur Map
