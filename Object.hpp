@@ -16,7 +16,6 @@ class RedShell : public IPlaceable, public Object {};
 class Banana : public IPlaceable, public Object {};
 // TODO: Banana action when on the map ? when use by the player ?
 
-class Box : public IPlaceable, public Object {};
 // TODO: Move other objects
 
 #endif // OBJECT_HPP

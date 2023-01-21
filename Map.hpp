@@ -16,6 +16,7 @@
 /*                                                                           */
 /*****************************************************************************/
 
+#include "Box.hpp"
 #include "Object.hpp"
 #include "Sun.hpp"
 #include <cstring>
@@ -82,8 +83,47 @@ private:
 
   /***************************** Private Method ******************************/
 private:
-  // TODO: ============================ Commentaire =========================
+  /**
+   *
+   * \fn InitBS();
+   * \brief Initialize every Sun and Box
+   * \return Null
+   *
+   **/
+  void InitBS();
+
+  /**
+   *
+   * \fn DeleteBS();
+   * \brief Clean every Sun and Box
+   * \return Null
+   *
+   **/
+  void DeleteBS();
+
+  /**
+   *
+   * \fn PlaceSun(int y, int x);
+   * \brief Add the element on coordinate [x,y] inside the suns array
+   * \param int y: coordinate on the y-axis
+   * \param int x: coordinate on the x-axis
+   * \return Null
+   *
+   **/
+
   void PlaceSun(int y, int x);
+
+  /**
+   *
+   * \fn PlaceSun(int y, int x);
+   * \brief Add the element on coordinate [x,y] inside the suns array
+   * \param int y: coordinate on the y-axis
+   * \param int x: coordinate on the x-axis
+   * \return Null
+   *
+   **/
+
+  void PlaceBox(int y, int x);
 
   /**
    *
@@ -178,6 +218,34 @@ public:
    **/
 
   Map(int = 12, int = 24);
+
+  /**
+   *
+   * \fn Map(int,int,int,int)
+   * \brief Constructor for Map with nbrBox and nbrSuns
+   * \param int: The height of the map (by default 12)
+   * \param int: The width of the map (by default 24)
+   * \param int: The number of box (by default 4)
+   * \param int: The number of sun (by default 5)
+   * \return An new object Map
+   *
+   * You need To call a generateMethod before using it!
+   *
+   **/
+  Map(int, int, int, int);
+
+  /******************************* Destructor ********************************/
+
+  /**
+   *
+   * \fn Map(int = 12,int = 14)
+   * \brief Destructor for Map
+   * \return An new object Map
+   *
+   * delete boxs and suns
+   *
+   **/
+  ~Map();
 
   /********************************** Other **********************************/
 

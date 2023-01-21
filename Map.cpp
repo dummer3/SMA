@@ -17,10 +17,25 @@
 /*                                                                           */
 /*****************************************************************************/
 
-Map::Map(int height, int width) : height(height), width(width) {
+Map::Map(int height, int width) : Map(height, width, 4, 5) {}
+
+Map::Map(int height, int width, int nbrBox, int nbrSun)
+    : height(height < 12 ? 12 : height), width(width < 12 ? 12 : width) {
+  this->nbrBox = (nbrBox < 0) ? 0 : nbrBox;
+  this->nbrSun = (nbrSun < 1) ? 1 : (nbrSun % 2 == 1) ? nbrSun : ++nbrSun;
+
   memset(tiles, 0, sizeof(int) * MAX_WIDTH * MAX_HEIGHT);
-  suns = new Sun *[nbrSun];
+
+  InitBS();
 }
+
+/*****************************************************************************/
+/*                                                                           */
+/*                                Destructor */
+/*                                                                           */
+/*****************************************************************************/
+
+Map::~Map() { DeleteBS(); }
 
 /*****************************************************************************/
 /*                                                                           */
@@ -32,11 +47,42 @@ Map::Map(int height, int width) : height(height), width(width) {
 /*                              Private Method                               */
 /*****************************************************************************/
 
+void Map::InitBS() {
+  suns = new Sun *[this->nbrSun];
+  boxs = new Box *[this->nbrBox];
+
+  for (int b = 0; b < nbrBox; b++) {
+    boxs[b] = NULL;
+  }
+  for (int s = 0; s < nbrSun; s++) {
+    suns[s] = NULL;
+  }
+}
+
+void Map::DeleteBS() {
+  for (int s = 0; s < nbrSun; s++)
+    if (suns[s] != NULL)
+      delete suns[s];
+
+  delete[] suns;
+
+  for (int b = 0; b < nbrBox; b++)
+    if (boxs[b] != NULL)
+      delete boxs[b];
+
+  delete[] boxs;
+}
+
 void Map::PlaceSun(int y, int x) {
 
   int tile = tiles[y][x];
-  std::cout << tile % 100 << std::endl;
   suns[tile % 100] = new Sun(y, x);
+}
+
+void Map::PlaceBox(int y, int x) {
+
+  int tile = tiles[y][x];
+  boxs[tile % 100] = new Box(y, x);
 }
 
 void Map::PlaceHalf(bool alea, int y, int x, int inc) {
@@ -52,10 +98,14 @@ void Map::PlaceHalf(bool alea, int y, int x, int inc) {
     w = x, h = height - y;
 
   tiles[h][w] = tiles[y][x] + inc;
+
+  // If this element was a sun
   if (tiles[y][x] >= 1000) {
     PlaceSun(h, w);
-  } else if (tiles[y][x] >= 100) {
-    // TODO: Place Obj
+  }
+  // If it was a Box
+  else if (tiles[y][x] >= 100) {
+    PlaceBox(h, w);
   }
 }
 
@@ -65,19 +115,27 @@ void Map::PlaceQuarter(int y, int x, int inc) {
            (tiles[height - y][width - x] = tiles[y][x] + inc) + inc) +
       inc;
 
+  // If this element was a sun
   if (tiles[y][x] >= 1000) {
     PlaceSun(height - y, x);
     PlaceSun(y, width - x);
     PlaceSun(height - y, width - x);
-  } else if (tiles[y][x] >= 100) {
-    // TODO: Place Obj
+  }
+  // If it was a Box
+  else if (tiles[y][x] >= 100) {
+    PlaceBox(height - y, x);
+    PlaceBox(y, width - x);
+    PlaceBox(height - y, width - x);
   }
 }
 
 void Map::GenerateBorder() {
 
-  // Clean the Map in case
+  // Clean the Map in case a previous map was generate
   memset(tiles, 0, sizeof(int) * MAX_WIDTH * MAX_HEIGHT);
+
+  // Recreate our Suns and Boxs
+  InitBS();
 
   // Horizontal Border
   for (int i = 0; i <= height; i++)
@@ -135,6 +193,7 @@ void Map::GenerateBox(int limitH, int limitW, int nbrObj) {
 
     // Add Box
     tiles[y][x] = 100 + i;
+    boxs[i] = new Box(y, x);
   }
 }
 
@@ -165,6 +224,9 @@ void Map::GenerateSun(int limitH, int limitW, int nbrSun) {
 
 void Map::GenerateAllMap() {
 
+  // Delete previous Box and Sun
+  DeleteBS();
+
   GenerateBorder();
 
   GenerateObstacle(height, width);
@@ -175,6 +237,18 @@ void Map::GenerateAllMap() {
 }
 
 void Map::GenerateHalfMap() {
+
+  // Delete previous Box and Sun
+  DeleteBS();
+
+  // Verification for Box
+  if (nbrBox % 2 != 0) {
+
+    // Our array is changed since the nbr was incorrect
+    std::cerr << "Le nombre de Box n'est pas un multiple de 2\n"
+              << "=Le nombre de Box est donc maintenant de " << ++nbrBox
+              << std::endl;
+  }
 
   // Cut Vertical (true) or horizontal(false)
   bool alea = rand() % 2 == 0;
@@ -221,6 +295,25 @@ void Map::GenerateHalfMap() {
 }
 
 void Map::GenerateQuarterMap() {
+
+ // Delete previous Box and Sun
+  DeleteBS();
+
+  // Verification for Box
+  if (nbrBox % 4 != 0) {
+    nbrBox += (4 - nbrBox % 4);
+    std::cerr << "Le nombre de Box n'est pas un multiple de 4\n"
+              << "=Le nombre de Box est donc maintenant de " << nbrBox
+              << std::endl;
+  }
+
+  // Verification for Sun
+  if (nbrSun % 4 != 1) {
+    nbrSun += (5 - nbrSun % 4);
+    std::cerr << "Le nombre de Soleil n'est pas de la forme 4*n+1\n"
+              << "=Le nombre de Soleil est donc maintenant de " << nbrSun
+              << std::endl;
+  }
 
   // Limit for our part
   int limitW = width / 2;
@@ -287,8 +380,14 @@ void Map::PrintMap() const {
     }
     std::cout << std::endl;
   }
+
   std::cout << std::endl;
   for (int s = 0; s < nbrSun; s++) {
     suns[s]->action();
   }
+  std::cout << std::endl;
+  for (int b = 0; b < nbrBox; b++) {
+    boxs[b]->action();
+  }
+  std::cout << std::endl;
 }
