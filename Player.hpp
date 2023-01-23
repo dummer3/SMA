@@ -2,6 +2,7 @@
 #define _Player
 
 #include <iostream>
+#include "Object.hpp"
 
 class Player{
 
