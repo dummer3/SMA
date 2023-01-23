@@ -1,28 +1,21 @@
 #ifndef OBJECT_HPP
 #define OBJECT_HPP
 
-class Object
-{
-    public:
-        virtual void action() = 0;
+// TODO: Remove this after all object are remove
+#include "Iplaceable.hpp"
+class Object {
+public:
+  virtual void action() = 0;
+  virtual ~Object();
 };
 
-class PlacableObject : public Object
-{
-    private:
-        int x;
-        int y;
-    
-    public:
-        int getX() const;
-        int getY() const;
-        void setX(int x);
-        void setY(int y);
-        virtual void action() = 0;
+class Mushroom : public Object {};
 
-};
+class RedShell : public IPlaceable, public Object {};
 
-// TODO: Other objects
+class Banana : public IPlaceable, public Object {};
+// TODO: Banana action when on the map ? when use by the player ?
 
+// TODO: Move other objects
 
 #endif // OBJECT_HPP
