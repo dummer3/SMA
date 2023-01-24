@@ -1,3 +1,12 @@
+<div align="center">
+    <img src = "./Photos/logo.jpg">
+</div>
+
+![Catch](https://img.shields.io/badge/Catch-2-brightgreen)
+![CMake](https://img.shields.io/badge/CMake-3-brightgreen)
+![Gprof](https://img.shields.io/badge/GNU-gprof-brightgreen)
+![Doxygen](https://img.shields.io/badge/Doxygen-Comments-brightgreen)
+
 # Simulation multi-agents
 
 ## Question
@@ -50,3 +59,21 @@ g++ -Wall -Wextra -g -o exec Object.cpp Iplaceable.cpp Box.cpp Sun.cpp Map.cpp t
 
 - [x] Destructeur de Map 
 - [ ] Autre ...
+
+
+# START README
+## Background
+The project is to simulate the Mario Kart game in order to implement a multi-agent simulation program.
+### Class diagram
+___THIS IS A DIAGRAM OF CLASSES___
+### Use case diagram
+___THIS IS A DIAGRAM OF USE CASE___
+## Usage
+___USAGE___
+## Maintainers
+@MatthiasBenquet
+@dummer3
+@CestMerNeil
+## Contributing
+## License
+___Est-ce que nous avons besoin d'un license?___
