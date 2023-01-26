@@ -18,12 +18,12 @@ int Player::getSunshine()
     return _sunshine;
 }
 
-void Player::setObject(Object object)
+void Player::setObject(Object* object)
 {
     this->_object = object;
 }
 
-Object Player::getObject()
+Object* Player::getObject()
 {
     return _object;
 }
@@ -36,9 +36,6 @@ void Player::useObject()
     // function of this object;
     this->_object = NULL;
 }
-
-void Player::makeDecision()
-{}
 
 void Player::makeDecision()
 {}
