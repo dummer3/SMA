@@ -1,3 +1,2 @@
-exec
 build/*
 !build/.keep
