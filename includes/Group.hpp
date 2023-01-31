@@ -1,10 +1,14 @@
-#ifndef GROUP_HPP
-#define GROUP_HPP
+#ifndef _Group
+#define _Group
 
-class Group {
-    
+#include <iostream>
+
+class Group{
+    private:
+    int _id;
+
+    public:
+    Group();
 };
 
-
-
-#endif // GROUP_HPP
+#endif
