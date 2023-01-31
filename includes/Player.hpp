@@ -1,15 +1,15 @@
 #ifndef _Player
 #define _Player
 
+#include "Object.hpp"
 #include <iostream>
 #include "Object.hpp"
-#include "Group.hpp"
 
 class Player {
 
   int _sunshine;
   int _speed;
-  Object* _object;
+  Object _object;
   Group _group;
   /**
    * In our situation, every player should be created by
@@ -23,13 +23,15 @@ public:
   Player(Group g);
   void setSunshine(int numOfSunshine);
   int getSunshine();
-  void setObject(Object* objet);
-  Object* getObject();
+  void setObject(Object objet);
+  Object getObject();
 
   void agir(); // il va agir,
   void seDeplacer();
   void useObject();
   void makeDecision();
+  void makeDecision();
+  void seDeplacer();
 };
 
 #endif
