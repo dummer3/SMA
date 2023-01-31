@@ -2,14 +2,14 @@
 #define _Player
 
 #include "Object.hpp"
+#include "Group.hpp"
 #include <iostream>
-#include "Object.hpp"
 
 class Player {
 
   int _sunshine;
   int _speed;
-  Object _object;
+  Object * _object;
   Group _group;
   /**
    * In our situation, every player should be created by
