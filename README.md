@@ -65,7 +65,7 @@ g++ -Wall -Wextra -g -o exec Object.cpp Iplaceable.cpp Box.cpp Sun.cpp Map.cpp t
 ## Build
 You need CMake version 3.19 or newer to build the program.
 
-After downloading the project, go to the `build` directory, run `cmake --build .` to build the program and then `./sma` to execute the program.
+After downloading the project, go to the `build` directory, run `cmake ..` and `cmake --build .` to build the program and then `./sma` to execute the program.
 ## Background
 The project is to simulate the Mario Kart game in order to implement a multi-agent simulation program.
 ### Class diagram
