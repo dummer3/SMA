@@ -376,7 +376,7 @@ void Map::PrintMap() const {
         color = COLOR_BLUE;
 
       // Print it;
-      std::cout << color << std::setw(3) << "" << COLOR_DEF;
+      std::cout << color << std::setw(2) << "" << COLOR_DEF;
     }
     std::cout << std::endl;
   }
