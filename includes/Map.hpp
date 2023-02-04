@@ -18,6 +18,7 @@
 
 #include "Box.hpp"
 #include "Object.hpp"
+#include "Player.hpp"
 #include "Sun.hpp"
 #include <cstring>
 #include <fstream>
@@ -58,7 +59,7 @@ const int MAX_HEIGHT = 100;
 /*                                                                           */
 /*****************************************************************************/
 
-class Map {
+class GameController {
 
   /******************************* Attribute *********************************/
 
@@ -76,6 +77,7 @@ private:
    */
 
   int tiles[MAX_HEIGHT][MAX_WIDTH];
+  Player **players;
   Box **boxs;
   Sun **suns;
 
@@ -85,7 +87,6 @@ private:
 private:
   /**
    *
-   * \fn InitBS();
    * \brief Initialize every Sun and Box
    * \return Null
    *
@@ -94,7 +95,6 @@ private:
 
   /**
    *
-   * \fn DeleteBS();
    * \brief Clean every Sun and Box
    * \return Null
    *
@@ -103,7 +103,6 @@ private:
 
   /**
    *
-   * \fn PlaceSun(int y, int x);
    * \brief Add the element on coordinate [x,y] inside the suns array
    * \param int y: coordinate on the y-axis
    * \param int x: coordinate on the x-axis
@@ -115,7 +114,6 @@ private:
 
   /**
    *
-   * \fn PlaceSun(int y, int x);
    * \brief Add the element on coordinate [x,y] inside the suns array
    * \param int y: coordinate on the y-axis
    * \param int x: coordinate on the x-axis
@@ -127,7 +125,6 @@ private:
 
   /**
    *
-   * \fn PlaceHalf(bool alea, int y, int x, int inc);
    * \brief Duplicate element for the second half of the map
    * \param bool alea: if the cut is vertical(true) or horizontal(false)
    * \param int y: coordinate on the y-axis
@@ -141,7 +138,6 @@ private:
 
   /**
    *
-   * \fn PlaceQuarter(int y, int x, int inc);
    * \brief Duplicate element for the other quarter of the map
    * \param int y: coordinate on the y-axis
    * \param int x: coordinate on the x-axis
@@ -153,7 +149,6 @@ private:
 
   /**
    *
-   * \fn void GenerateBorder()
    * \brief Generate the border of the map
    * \param None
    * \return Null
@@ -164,7 +159,6 @@ private:
 
   /**
    *
-   * \fn GenerateObstacle(int limitH, int limitW)
    * \brief Generate the obstacle for a part of the map
    * \param int limitH: height limit
    * \param int limitW: width limit
@@ -189,7 +183,6 @@ private:
 
   /**
    *
-   * \fn GenerateSun(int limitH, int limitW, int nbrSun)
    * \brief Generate the Sun for a part of the map
    * \param int limitH: height limit
    * \param int limitW: width limit
@@ -207,51 +200,47 @@ public:
 
   /**
    *
-   * \fn Map(int = 12,int = 14)
-   * \brief Simplest Constructor for Map
+   * \brief Simplest Constructor for GameController
    * \param int = 12: The height of the map (by default 12)
    * \param int = 24: The width of the map (by default 24)
-   * \return An new object Map
+   * \return An new object GameController
    *
    * You need To call a generateMethod before using it!
    *
    **/
 
-  Map(int = 12, int = 24);
+  GameController(int = 12, int = 24);
 
   /**
    *
-   * \fn Map(int,int,int,int)
-   * \brief Constructor for Map with nbrBox and nbrSuns
+   * \brief Constructor for GameController with nbrBox and nbrSuns
    * \param int: The height of the map (by default 12)
    * \param int: The width of the map (by default 24)
    * \param int: The number of box (by default 4)
    * \param int: The number of sun (by default 5)
-   * \return An new object Map
+   * \return An new object GameController
    *
    * You need To call a generateMethod before using it!
    *
    **/
-  Map(int, int, int, int);
+  GameController(int, int, int, int);
 
   /******************************* Destructor ********************************/
 
   /**
    *
-   * \fn Map(int = 12,int = 14)
-   * \brief Destructor for Map
-   * \return An new object Map
+   * \brief Destructor for GameController
+   * \return An new object GameController
    *
    * delete boxs and suns
    *
    **/
-  ~Map();
+  ~GameController();
 
   /********************************** Other **********************************/
 
   /**
    *
-   * \fn GenerateAllMap()
    * \brief Generate randomly a map without symetry
    * \param None
    * \return Null
@@ -262,7 +251,6 @@ public:
 
   /**
    *
-   * \fn GenerateQuarterMap()
    * \brief Generate randomly a map with horizontal or vertical symetry
    * \param None
    * \return Null
@@ -273,7 +261,6 @@ public:
 
   /**
    *
-   * \fn GenerateQuarterMap()
    * \brief Generate randomly a map with horizontal & vertical symetry
    * \param None
    * \return Null
@@ -284,7 +271,16 @@ public:
 
   /**
    *
-   * \fn PrintMap() const
+   * \brief Generate randomly a map with horizontal & vertical symetry
+   * \param None
+   * \return Null
+   *
+   **/
+
+  int GetAtIndex(int posY, int posX) const;
+
+  /**
+   *
    * \brief Print the map on the terminal
    * \param None
    * \return Null

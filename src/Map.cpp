@@ -296,7 +296,7 @@ void Map::GenerateHalfMap() {
 
 void Map::GenerateQuarterMap() {
 
- // Delete previous Box and Sun
+  // Delete previous Box and Sun
   DeleteBS();
 
   // Verification for Box
@@ -355,6 +355,8 @@ void Map::GenerateQuarterMap() {
     }
   }
 }
+
+int Map::GetAtIndex(int posY, int posX) const { return tiles[posY][posX]; }
 
 void Map::PrintMap() const {
 
