@@ -1,0 +1,10 @@
+# ninja log v5
+1	401	1675776377407923783	CMakeFiles/sma.dir/src/Object.cpp.o	b2cf18f7c4142fa0
+1	405	1675776377414931498	CMakeFiles/sma.dir/src/Group.cpp.o	662be8fac8794996
+1	406	1675776377417318028	CMakeFiles/sma.dir/src/Iplaceable.cpp.o	2ceab9c43ac125d8
+1	409	1675776377420358680	CMakeFiles/sma.dir/src/Box.cpp.o	2abd78c254804081
+1	429	1675776377440107040	CMakeFiles/sma.dir/src/Sun.cpp.o	1c9ed0d60ebcc4ab
+1	457	1675776377467432738	CMakeFiles/sma.dir/src/Map.cpp.o	cb319324ee3fdfa8
+2	487	1675776377498245710	CMakeFiles/sma.dir/src/test.cpp.o	c0a6855eac4853c2
+4	271	1675776818182473495	CMakeFiles/sma.dir/src/test.cpp.o	c0a6855eac4853c2
+4	187	1675776863132733786	CMakeFiles/sma.dir/src/Player.cpp.o	5ddd436629cd8d5f

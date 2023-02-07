@@ -44,8 +44,6 @@ public:
   void seDeplacer();
   void useObject();
   void makeDecision();
-  void makeDecision();
-  void seDeplacer();
 };
 
 #endif

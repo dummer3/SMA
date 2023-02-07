@@ -1,19 +1,9 @@
-#include<iostream>
-#include "Map.hpp"
+#include "catch.hpp"
+#include <iostream>
 
-int main(int, char **) {
-
-  srand(time(0));
-
-  Map m(36, 24, 1, 3);
-
-  m.GenerateAllMap();
-  m.PrintMap();
-  m.GenerateHalfMap();
-  m.PrintMap();
-  m.GenerateQuarterMap();
-  m.PrintMap();
-  m.GenerateQuarterMap();
-  m.PrintMap();
-  return 0;
+TEST_CASE("First Test") {
+    std::cout << "Hello World" << std::endl;
 }
+
+// REQUIRE();
+// SECTION {}

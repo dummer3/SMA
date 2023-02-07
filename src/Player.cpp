@@ -33,7 +33,7 @@ Direction Player::getDirection(){
 }
 
 void Player::seDeplacer(){
-    
+    std::cout << "seDeplacer()" << std::endl;
 }
 
 void Player::useObject(){
@@ -41,6 +41,7 @@ void Player::useObject(){
     this->_object = NULL;
 }
 
-void Player::makeDecision()
-{}
+void Player::makeDecision() {
+    std::cout << "makeDecision()" << std::endl;
+}
 

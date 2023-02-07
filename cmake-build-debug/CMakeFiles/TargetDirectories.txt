@@ -1,0 +1,3 @@
+/Users/neil/Code/SMA/cmake-build-debug/CMakeFiles/sma.dir
+/Users/neil/Code/SMA/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/neil/Code/SMA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
