@@ -20,7 +20,7 @@ class Player {
   int _sunshine;
   // Unit: TILE/TICK
   int _speed;
-  Object * _object;
+  Object *_object;
   Group _group;
   /**
    * In our situation, every player should be created by
@@ -35,8 +35,8 @@ public:
 
   void setSunshine(int numOfSunshine);
   int getSunshine();
-  void setObject(Object * objet);
-  Object * getObject();
+  void setObject(Object *objet);
+  Object *getObject();
   void setDirection(Direction direction);
   Direction getDirection();
 

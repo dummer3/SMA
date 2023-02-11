@@ -360,6 +360,7 @@ int Map::GetAtIndex(int posY, int posX) const { return tiles[posY][posX]; }
 
 void Map::PrintMap() const {
 
+  std::cout << "\033[2J";
   // For every tile
   for (int y = 0; y <= height; y++) {
     for (int x = 0; x <= width; x++) {

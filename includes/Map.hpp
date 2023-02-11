@@ -17,6 +17,7 @@
 /*****************************************************************************/
 
 #include "Box.hpp"
+#include "GameController.hpp"
 #include "Object.hpp"
 #include "Player.hpp"
 #include "Sun.hpp"
@@ -58,9 +59,11 @@ const int MAX_HEIGHT = 100;
 /*                                Class                                      */
 /*                                                                           */
 /*****************************************************************************/
+class GameController;
 
-class GameController {
+class Map {
 
+  friend GameController;
   /******************************* Attribute *********************************/
 
 private:
@@ -209,7 +212,7 @@ public:
    *
    **/
 
-  GameController(int = 12, int = 24);
+  Map(int = 12, int = 24);
 
   /**
    *
@@ -223,7 +226,7 @@ public:
    * You need To call a generateMethod before using it!
    *
    **/
-  GameController(int, int, int, int);
+  Map(int, int, int, int);
 
   /******************************* Destructor ********************************/
 
@@ -235,7 +238,7 @@ public:
    * delete boxs and suns
    *
    **/
-  ~GameController();
+  ~Map();
 
   /********************************** Other **********************************/
 
