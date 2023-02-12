@@ -9,10 +9,13 @@ class Box : public Object, public IPlaceable {
 
 private:
   Object *content;
+  int cooldown;
 
 public:
   Box(int, int);
   virtual void action();
+  Object *GetContent();
+  bool Manage();
   virtual ~Box();
 };
 #endif /* BOX_H */

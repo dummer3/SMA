@@ -38,17 +38,21 @@ void Player::makeDecision() {
   int interest = 0;
   int i, line;
   int deltaY = 0, deltaX = 0;
-  for (int radius = 1; radius < 10 && interest < 1000; radius++) {
-    for (i = -1; i <= 1 && interest < 1000; i += 2) {
-      for (line = -radius; line <= radius && interest < 1000; line++) {
+  for (int radius = 1; radius < 10 && interest < 10; radius++) {
+    for (i = -1; i <= 1 && interest < 10; i += 2) {
+      for (line = -radius; line <= radius && interest < 10; line++) {
         int dX = 0, dY = i,
             test = GameController::Get()->EvaluateTile(
-                _location.first + radius * i, _location.second + line);
+                       _location.first + radius * i, _location.second + line) /
+                   100;
 
-        if (GameController::Get()->EvaluateTile(
-                _location.first + line, _location.second + radius * i) > test) {
+        if (GameController::Get()->EvaluateTile(_location.first + line,
+                                                _location.second + radius * i) /
+                100 >
+            test) {
           test = GameController::Get()->EvaluateTile(
-              _location.first + line, _location.second + radius * i);
+                     _location.first + line, _location.second + radius * i) /
+                 100;
           dY = 0;
           dX = i;
         }

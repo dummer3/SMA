@@ -40,6 +40,17 @@ void GameController::NewRound() {
       suns[result % 1000]->setY(-1);
       map->tiles[players[i]->getLocation().first]
                 [players[i]->getLocation().second] = 0;
+      // TODO: Give the sun to the player
+    } else if (result >= 100) {
+      // TODO: Give the object to the player
+      map->boxs[result % 100]->GetContent();
+      map->tiles[players[i]->getLocation().first]
+                [players[i]->getLocation().second] = 0;
+    }
+  }
+  for (int b = 0; b < map->nbrBox; b++) {
+    if (map->boxs[b]->Manage()) {
+      map->tiles[map->boxs[b]->getY()][map->boxs[b]->getX()] = 100 + b;
     }
   }
 }

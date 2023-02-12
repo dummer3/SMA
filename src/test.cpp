@@ -16,6 +16,7 @@ TEST_CASE("First Test") {
 #include <unistd.h>
 
 int main(int, char **) {
+  unsigned int frame = 500000;
 
   srand(time(0));
 
@@ -24,7 +25,7 @@ int main(int, char **) {
 
   for (int i = 0; i < 100; i++) {
     g->NewRound();
-    sleep(1);
+    usleep(frame);
   }
 
   g->Destroy();
