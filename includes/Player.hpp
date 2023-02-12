@@ -3,15 +3,13 @@
 
 #include <iostream>
 
-#include "Object.hpp"
+#include "GameController.hpp"
 #include "Group.hpp"
+#include "Object.hpp"
 
-enum Direction {
-  Up,
-  Down,
-  Left,
-  Right
-};
+enum Direction { Up, Down, Left, Right };
+
+class Group;
 
 class Player {
 
@@ -21,7 +19,8 @@ class Player {
   // Unit: TILE/TICK
   int _speed;
   Object *_object;
-  Group _group;
+  Group *_group;
+
   /**
    * In our situation, every player should be created by
    * a group, so every time create a group, take the name
@@ -31,7 +30,7 @@ class Player {
   friend class Group; // Player can only be created by Group.
 
 public:
-  Player(Group g);
+  Player(Group *g);
 
   void setSunshine(int numOfSunshine);
   int getSunshine();
@@ -44,6 +43,9 @@ public:
   void seDeplacer();
   void useObject();
   void makeDecision();
+  void setLocation(int, int);
+  std::pair<int, int> getLocation() const;
+  const Group *getGroup() const;
 };
 
 #endif

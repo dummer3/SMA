@@ -13,25 +13,21 @@ TEST_CASE("First Test") {
 #include "Map.hpp"
 #include "catch.hpp"
 #include <iostream>
-
-TEST_CASE("First Test") { std::cout << "Hello World" << std::endl; }
-
-// REQUIRE();
-// SECTION {}
+#include <unistd.h>
 
 int main(int, char **) {
 
   srand(time(0));
 
-  Map m(16, 32, 1, 3);
+  GameController *g = GameController::Get();
+  g->InitGame();
 
-  m.GenerateAllMap();
-  m.PrintMap();
-  m.GenerateHalfMap();
-  m.PrintMap();
-  m.GenerateQuarterMap();
-  m.PrintMap();
-  m.GenerateQuarterMap();
-  m.PrintMap();
+  for (int i = 0; i < 100; i++) {
+    g->NewRound();
+    sleep(1);
+  }
+
+  g->Destroy();
+  // delete g;
   return 0;
 }

@@ -17,12 +17,11 @@
 /*                                                                           */
 /*****************************************************************************/
 
-Map::Map(int height, int width) : Map(height, width, 4, 5) {}
+Map::Map(int height, int width) : Map(height, width, 4) {}
 
-Map::Map(int height, int width, int nbrBox, int nbrSun)
+Map::Map(int height, int width, int nbrBox)
     : height(height < 12 ? 12 : height), width(width < 12 ? 12 : width) {
   this->nbrBox = (nbrBox < 0) ? 0 : nbrBox;
-  this->nbrSun = (nbrSun < 1) ? 1 : (nbrSun % 2 == 1) ? nbrSun : ++nbrSun;
 
   memset(tiles, 0, sizeof(int) * MAX_WIDTH * MAX_HEIGHT);
 
@@ -48,24 +47,14 @@ Map::~Map() { DeleteBS(); }
 /*****************************************************************************/
 
 void Map::InitBS() {
-  suns = new Sun *[this->nbrSun];
   boxs = new Box *[this->nbrBox];
 
   for (int b = 0; b < nbrBox; b++) {
     boxs[b] = NULL;
   }
-  for (int s = 0; s < nbrSun; s++) {
-    suns[s] = NULL;
-  }
 }
 
 void Map::DeleteBS() {
-  for (int s = 0; s < nbrSun; s++)
-    if (suns[s] != NULL)
-      delete suns[s];
-
-  delete[] suns;
-
   for (int b = 0; b < nbrBox; b++)
     if (boxs[b] != NULL)
       delete boxs[b];
@@ -76,13 +65,18 @@ void Map::DeleteBS() {
 void Map::PlaceSun(int y, int x) {
 
   int tile = tiles[y][x];
-  suns[tile % 100] = new Sun(y, x);
+  GameController::Get()->suns[tile % 100] = new Sun(y, x);
 }
 
 void Map::PlaceBox(int y, int x) {
 
   int tile = tiles[y][x];
   boxs[tile % 100] = new Box(y, x);
+}
+
+void Map::PlacePlayer(int y, int x, int index, Group *g) {
+  GameController::Get()->players[index] = new Player(g);
+  GameController::Get()->players[index]->setLocation(y, x);
 }
 
 void Map::PlaceHalf(bool alea, int y, int x, int inc) {
@@ -106,6 +100,7 @@ void Map::PlaceHalf(bool alea, int y, int x, int inc) {
   // If it was a Box
   else if (tiles[y][x] >= 100) {
     PlaceBox(h, w);
+  } else {
   }
 }
 
@@ -157,7 +152,7 @@ void Map::GenerateObstacle(int limitH, int limitW) {
       // obstacle increase.
       // like that, obstacle have better chance to form pattern.
 
-      // Initial probabilty
+      // Initial probability
       float proba = 0.08;
 
       // Adjacent tiles verification
@@ -201,7 +196,7 @@ void Map::GenerateSun(int limitH, int limitW, int nbrSun) {
 
   // Add a Sun at the center of the map
   tiles[height / 2][width / 2] = 1000;
-  suns[0] = new Sun(height / 2, width / 2);
+  GameController::Get()->suns[0] = new Sun(height / 2, width / 2);
 
   // For every Sun
   for (int i = 1; i <= nbrSun; i++) {
@@ -214,7 +209,23 @@ void Map::GenerateSun(int limitH, int limitW, int nbrSun) {
 
     // Add Sun
     tiles[y][x] = 1000 + i;
-    suns[i] = new Sun(y, x);
+    GameController::Get()->suns[i] = new Sun(y, x);
+  }
+}
+
+void Map::GeneratePlayer(int limitH, int limitW, int nbrPlayer) {
+
+  // For every Player
+  for (int i = 1; i <= nbrPlayer; i++) {
+    int x, y;
+
+    // Until we find an empty space
+    do
+      y = rand() % limitH, x = rand() % limitW;
+    while (tiles[y][x] != 0);
+
+    // Add Player
+    PlacePlayer(y, x, i, GameController::Get()->g1);
   }
 }
 
@@ -233,7 +244,9 @@ void Map::GenerateAllMap() {
 
   GenerateBox(height, width, nbrBox);
 
-  GenerateSun(height, width, nbrSun - 1);
+  GenerateSun(height, width, GameController::Get()->nbrSun - 1);
+
+  GeneratePlayer(height, width, GameController::Get()->nbrPlayer);
 }
 
 void Map::GenerateHalfMap() {
@@ -281,16 +294,29 @@ void Map::GenerateHalfMap() {
     }
   }
 
-  GenerateSun(limitH, limitW, (nbrSun - 1) / 2);
+  GenerateSun(limitH, limitW, (GameController::Get()->nbrSun - 1) / 2);
 
   // Apply Sun for other half part
-  inc = (nbrSun - 1) / 2;
+  inc = (GameController::Get()->nbrSun - 1) / 2;
   for (int y = 1; y < limitH; y++) {
     for (int x = 1; x < limitW; x++) {
       if (tiles[y][x] >= 1000) {
         PlaceHalf(alea, y, x, inc);
       }
     }
+  }
+
+  GameController *g = GameController::Get();
+  inc = g->nbrPlayer / 2;
+  GeneratePlayer(limitH, limitW, inc);
+
+  for (int i = 1; i <= inc; i++) {
+    std::pair<int, int> location = g->players[i]->getLocation();
+    g->players[i + inc] =
+        new Player(g->g1->SameGroup(g->players[i]->getGroup()) ? g->g2 : g->g1);
+    g->players[i + inc]->setLocation(
+        alea ? location.first : height - location.first,
+        alea ? width - location.second : location.second);
   }
 }
 
@@ -308,11 +334,11 @@ void Map::GenerateQuarterMap() {
   }
 
   // Verification for Sun
-  if (nbrSun % 4 != 1) {
-    nbrSun += (5 - nbrSun % 4);
+  if (GameController::Get()->nbrSun % 4 != 1) {
+    GameController::Get()->nbrSun += (5 - GameController::Get()->nbrSun % 4);
     std::cerr << "Le nombre de Soleil n'est pas de la forme 4*n+1\n"
-              << "=Le nombre de Soleil est donc maintenant de " << nbrSun
-              << std::endl;
+              << "=Le nombre de Soleil est donc maintenant de "
+              << GameController::Get()->nbrSun << std::endl;
   }
 
   // Limit for our part
@@ -343,10 +369,10 @@ void Map::GenerateQuarterMap() {
     }
   }
 
-  GenerateSun(limitH, limitW, (nbrSun - 1) / 4);
+  GenerateSun(limitH, limitW, (GameController::Get()->nbrSun - 1) / 4);
 
   // Apply Sun for other quarter part
-  inc = (nbrSun - 1) / 4;
+  inc = (GameController::Get()->nbrSun - 1) / 4;
   for (int y = 1; y < limitH; y++) {
     for (int x = 1; x < limitW; x++) {
       if (tiles[y][x] >= 1000) {
@@ -354,43 +380,104 @@ void Map::GenerateQuarterMap() {
       }
     }
   }
+
+  GameController *g = GameController::Get();
+  inc = g->nbrPlayer / 4;
+  GeneratePlayer(limitH, limitW, inc);
+
+  for (int i = 1; i <= inc; i++) {
+    std::pair<int, int> location = g->players[i]->getLocation();
+    g->players[i + inc] =
+        new Player(g->g1->SameGroup(g->players[i]->getGroup()) ? g->g1 : g->g2);
+    g->players[i + inc]->setLocation(height - location.first,
+                                     width - location.second);
+    g->players[i + inc * 2] =
+        new Player(g->g1->SameGroup(g->players[i]->getGroup()) ? g->g2 : g->g1);
+    g->players[i + inc * 2]->setLocation(location.first,
+                                         width - location.second);
+    g->players[i + inc * 3] =
+        new Player(g->g1->SameGroup(g->players[i]->getGroup()) ? g->g2 : g->g1);
+    g->players[i + inc * 3]->setLocation(height - location.first,
+                                         location.second);
+  }
 }
 
 int Map::GetAtIndex(int posY, int posX) const { return tiles[posY][posX]; }
 
 void Map::PrintMap() const {
 
-  std::cout << "\033[2J";
   // For every tile
   for (int y = 0; y <= height; y++) {
     for (int x = 0; x <= width; x++) {
 
-      // Choose the correct color
+      // Choose the correct background colorBack
+      std::string colorBack;
       std::string color;
       int tile = tiles[y][x];
 
       if (tile == 0)
-        color = COLOR_BLACK;
+        colorBack = COLOR_BACK_BLACK;
       else if (tile == -1)
-        color = COLOR_WHITE;
+        colorBack = COLOR_BACK_WHITE;
       else if (tile >= 1000)
-        color = COLOR_YELLOW;
+        colorBack = COLOR_BACK_YELLOW;
       else
-        color = COLOR_BLUE;
+        colorBack = COLOR_BACK_BLUE;
 
-      // Print it;
-      std::cout << color << std::setw(2) << "" << COLOR_DEF;
+      // choose the correct color
+      Player *p = nullptr;
+      for (int i = 1; i <= GameController::Get()->nbrPlayer; i++) {
+        std::pair<int, int> l =
+            GameController::Get()->players[i]->getLocation();
+        if (y == l.first && x == l.second)
+          p = GameController::Get()->players[i];
+      }
+
+      if (p) {
+        if (GameController::Get()->g1->OnMyGroup(p))
+          color = COLOR_MAGENTA;
+        else if (GameController::Get()->g2->OnMyGroup(p))
+          color = COLOR_RED;
+
+        switch (p->getDirection()) {
+        case Up:
+          color += "^ ";
+          break;
+        case Down:
+          color += "v ";
+          break;
+        case Left:
+          color += "< ";
+          break;
+        case Right:
+          color += "> ";
+          break;
+        }
+      } else
+        color = "  ";
+
+      // Print it!
+      std::cout << colorBack << color << COLOR_BACK_DEF << COLOR_DEF;
     }
     std::cout << std::endl;
   }
 
-  std::cout << std::endl;
-  for (int s = 0; s < nbrSun; s++) {
-    suns[s]->action();
+  // Place the map on the terminal correctly
+  std::cout << "\033[2J";
+
+  /*std::cout << std::endl;
+  for (int s = 0; s < GameController::Get()->nbrSun; s++) {
+    GameController::Get()->suns[s]->action();
   }
   std::cout << std::endl;
   for (int b = 0; b < nbrBox; b++) {
     boxs[b]->action();
   }
   std::cout << std::endl;
+
+  for (int p = 1; p <= GameController::Get()->nbrPlayer; p++) {
+    std::pair<int, int> l = GameController::Get()->players[p]->getLocation();
+    std::cout << "Player[" << l.first << ":" << l.second << "]" << std::endl;
+  }
+  std::cout << std::endl;*/
 }
