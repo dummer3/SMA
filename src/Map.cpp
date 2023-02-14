@@ -50,7 +50,7 @@ void Map::InitBS() {
   boxs = new Box *[this->nbrBox];
 
   for (int b = 0; b < nbrBox; b++) {
-    boxs[b] = NULL;
+    boxs[b] = nullptr;
   }
 }
 

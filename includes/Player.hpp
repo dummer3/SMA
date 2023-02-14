@@ -42,8 +42,9 @@ public:
   void agir(); // il va agir,
   void seDeplacer();
   void useObject();
-  void makeDecision();
+  int makeDecision();
   void setLocation(int, int);
+  void setLocation(std::pair<int, int>);
   std::pair<int, int> getLocation() const;
   const Group *getGroup() const;
 };

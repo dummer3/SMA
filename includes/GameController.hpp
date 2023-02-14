@@ -4,6 +4,8 @@
 #include "Map.hpp"
 #include "Player.hpp"
 #include "Sun.hpp"
+#include "f_stack.hpp"
+#include "p_queue.hpp"
 
 class Map;
 class Player;
@@ -34,6 +36,7 @@ public:
   void NewRound();
   void ManagePlayer();
   int EvaluateTile(int, int);
+  std::pair<int, int> A(std::pair<int, int> start, std::pair<int, int> end);
 
   static GameController *Get(int = 8);
 

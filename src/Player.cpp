@@ -34,43 +34,67 @@ void Player::useObject() {
   this->_object = NULL;
 }
 
-void Player::makeDecision() {
-  int interest = 0;
-  int i, line;
+int Player::makeDecision() {
+  int interest = -1;
   int deltaY = 0, deltaX = 0;
+  std::pair<int, int> pos;
+  pos.first = pos.second = 0;
+
+  // Scan the map
   for (int radius = 1; radius < 10 && interest < 10; radius++) {
-    for (i = -1; i <= 1 && interest < 10; i += 2) {
-      for (line = -radius; line <= radius && interest < 10; line++) {
-        int dX = 0, dY = i,
-            test = GameController::Get()->EvaluateTile(
+
+    // Watch Left and Up, then Right and Down
+    for (int i = -1; i <= 1 && interest < 10; i += 2) {
+
+      // Scan one side
+      for (int line = -radius; line <= radius && interest < 10; line++) {
+
+        std::pair<int, int> p;
+        int dX = 0, dY = i;
+        p.first = _location.first + radius * i;
+        p.second = _location.second + line;
+
+        // Scan Horizontaly
+        int test = GameController::Get()->EvaluateTile(
                        _location.first + radius * i, _location.second + line) /
                    100;
 
+        // Scan Vertically and keep the best one
         if (GameController::Get()->EvaluateTile(_location.first + line,
                                                 _location.second + radius * i) /
                 100 >
             test) {
+
           test = GameController::Get()->EvaluateTile(
                      _location.first + line, _location.second + radius * i) /
                  100;
           dY = 0;
           dX = i;
+          p.first = _location.first + line,
+          p.second = _location.second + radius * i;
         }
+
+        // If it's better than the previous one.
         if (test > interest) {
           interest = test;
           deltaY = dY;
           deltaX = dX;
+          pos = p;
         }
       }
     }
   }
-  setLocation(_location.first + deltaY, _location.second + deltaX);
+
+  setLocation(GameController::Get()->A(_location, pos));
+  return interest;
 }
 
 void Player::setLocation(int y, int x) {
   _location.first = y;
   _location.second = x;
 }
+
+void Player::setLocation(std::pair<int, int> l) { _location = l; }
 
 std::pair<int, int> Player::getLocation() const { return _location; }
 
