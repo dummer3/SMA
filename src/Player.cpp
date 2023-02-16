@@ -32,13 +32,32 @@ Direction Player::getDirection(){
     return _direction;
 }
 
+void Player::setSpeed(int speed){
+    this->_speed = speed;
+}
+
+int Player::getSpeed(){
+    return _speed;
+}
+
+void Player::setBoostTimer(int boost_timer){
+    this->_boost_timer = boost_timer;
+}
+
+int Player::getBoostTimer(){
+    return _boost_timer;
+}
+
 void Player::seDeplacer(){
     std::cout << "seDeplacer()" << std::endl;
 }
 
 void Player::useObject(){
     // function of this object;
-    this->_object = NULL;
+    if (this->_object != nullptr) {
+        this->_object->useEffect(this);
+        this->_object = nullptr; // nullptr or delete _object ?
+    }
 }
 
 void Player::makeDecision() {

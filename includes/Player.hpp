@@ -20,6 +20,7 @@ class Player {
   int _sunshine;
   // Unit: TILE/TICK
   int _speed;
+  int _boost_timer;
   Object * _object;
   Group _group;
   /**
@@ -39,6 +40,10 @@ public:
   Object * getObject();
   void setDirection(Direction direction);
   Direction getDirection();
+  void setSpeed(int speed);
+  int getSpeed();
+  void setBoostTimer(int boost_timer);
+  int getBoostTimer();
 
   void agir(); // il va agir,
   void seDeplacer();

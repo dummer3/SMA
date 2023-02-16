@@ -8,6 +8,7 @@ private:
   int y, x;
 
 public:
+  IPlaceable();
   IPlaceable(int, int);
   int getX() const;
   int getY() const;

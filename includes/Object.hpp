@@ -39,10 +39,17 @@ class Object {
   public:
     /**
      * 
-     * \brief action of the object
+     * \brief action when the object is used
      * 
      */
-    virtual void action() = 0;
+    virtual void useEffect(Player*) = 0;
+
+    /**
+     * 
+     * \brief action when the object hit a Player
+     * 
+     */
+    virtual void hitEffect(Player*) = 0;
 
     /**
      * 
@@ -74,10 +81,10 @@ class Mushroom : public Object {
 
     /**
      * 
-     * \brief action of the mushroom
+     * \brief action when the mushroom is used
      * 
      */
-    void action() override;
+    void useEffect(Player*) override;
 };
 
 
@@ -92,7 +99,29 @@ class Mushroom : public Object {
  * \brief Class for the red shell object
  * 
 */
-class RedShell : public IPlaceable, public Object {};
+class RedShell : public IPlaceable, public Object {
+  public:
+    /**
+     * 
+     * \brief constructor of the red shell
+     * 
+     */
+    RedShell();
+
+    /**
+     * 
+     * \brief action when the red shell is used
+     * 
+     */
+    void useEffect(Player*) override;
+
+    /**
+     * 
+     * \brief action when the red shell hit a Player
+     * 
+     */
+    void hitEffect(Player*) override;
+};
 
 
 
@@ -105,7 +134,29 @@ class RedShell : public IPlaceable, public Object {};
  * \brief Class for the banana object
  * 
 */
-class Banana : public IPlaceable, public Object {};
+class Banana : public IPlaceable, public Object {
+  public:
+    /**
+     * 
+     * \brief constructor of the banana
+     * 
+     */
+    Banana();
+
+    /**
+     * 
+     * \brief action when the banana is used
+     * 
+     */
+    void useEffect(Player*) override;
+
+    /**
+     * 
+     * \brief action when the banana hit a Player
+     * 
+     */
+    void hitEffect(Player*) override;
+};
 
 
 
