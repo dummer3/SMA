@@ -13,9 +13,9 @@ private:
 
 public:
   Box(int, int);
+  virtual ~Box();
   virtual void action();
   Object *GetContent();
   bool Manage();
-  virtual ~Box();
 };
 #endif /* BOX_H */

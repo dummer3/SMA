@@ -14,7 +14,7 @@ void Box::action() {
 bool Box::Manage() {
   cooldown--;
   if (cooldown == 0) {
-    content = new Mushroom();
+    content = new Mushroom(); //TODO: Randomize the content AND Destroy at the end
   }
   return cooldown == 0;
 }

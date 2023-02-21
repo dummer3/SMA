@@ -56,17 +56,24 @@ void GameController::NewRound() {
 void GameController::InitGame() { map->GenerateQuarterMap(); }
 
 void GameController::Destroy() {
-  delete game;
   delete map;
   map = nullptr;
-  game = nullptr;
+
+  delete g1;
+  delete g2;
 
   for (int p = 1; p <= nbrPlayer; p++) {
     delete players[p];
   }
+  delete players;
+
   for (int s = 0; s < nbrSun; s++) {
     delete suns[s];
   }
+  delete suns;
+
+  delete game;
+  game = nullptr;
 }
 
 int GameController::EvaluateTile(int y, int x) {
