@@ -19,6 +19,7 @@
 // TODO: Maybe, each object is in its own file?
 #include "Iplaceable.hpp"
 
+class Player;
 
 /*****************************************************************************/
 /*                                                                           */
@@ -85,6 +86,7 @@ class Mushroom : public Object {
      * 
      */
     void useEffect(Player*) override;
+    void hitEffect(Player*) override;
 };
 
 

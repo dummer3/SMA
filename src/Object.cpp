@@ -15,6 +15,10 @@ void Mushroom::useEffect(Player* player) {
   player->setSpeed(2);
 }
 
+void Mushroom::hitEffect(Player* player) {
+  
+}
+
 RedShell::RedShell() {
 
 }

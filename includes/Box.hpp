@@ -5,7 +5,7 @@
 #include "Object.hpp"
 #include <iostream>
 
-class Box : public Object, public IPlaceable {
+class Box : public IPlaceable {
 
 private:
   Object *content;

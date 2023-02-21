@@ -11,7 +11,7 @@ enum Direction { Up, Down, Left, Right };
 
 class Group;
 
-class Player {
+class Player : public IPlaceable {
 
   std::pair<int, int> _location;
   Direction _direction;

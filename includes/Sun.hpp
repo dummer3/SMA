@@ -7,7 +7,7 @@
 
 // TODO: Bouger le soleil lorsque un joueur le posséde ?
 
-class Sun : public Object, public IPlaceable {
+class Sun : public IPlaceable {
 public:
   Sun(int, int);
   virtual void action();
