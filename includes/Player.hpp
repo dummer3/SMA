@@ -43,7 +43,7 @@ public:
   void setBoostTimer(int boost_timer);
   int getBoostTimer();
 
-  void agir(); // il va agir,
+  // void agir(); // il va agir,
   void seDeplacer();
   void useObject();
   int makeDecision();
