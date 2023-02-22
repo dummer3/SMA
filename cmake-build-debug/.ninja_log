@@ -7,3 +7,12 @@
 1	457	1675776377467432738	CMakeFiles/sma.dir/src/Map.cpp.o	cb319324ee3fdfa8
 4	271	1675776818182473495	CMakeFiles/sma.dir/src/test.cpp.o	c0a6855eac4853c2
 4	187	1675776863132733786	CMakeFiles/sma.dir/src/Player.cpp.o	5ddd436629cd8d5f
+3	222	1676976934806731749	CMakeFiles/sma.dir/src/Box.cpp.o	e26bbcc4f41c3b0f
+5	278	1676976934858166996	CMakeFiles/sma.dir/src/Sun.cpp.o	fb8dd530dc3802a2
+4	296	1676976934881764219	CMakeFiles/sma.dir/src/Group.cpp.o	541bef96e503128
+4	302	1676976934887747192	CMakeFiles/sma.dir/src/Map.cpp.o	b373857ec4d6973b
+5	309	1676976934894846959	CMakeFiles/sma.dir/src/Object.cpp.o	846e9a24070ebf57
+5	320	1676976934905640443	CMakeFiles/sma.dir/src/Player.cpp.o	34e7696fa209cf0a
+4	347	1676976934933149633	CMakeFiles/sma.dir/src/GameController.cpp.o	7092dbdeacbead7b
+6	1950	1676976936530020561	CMakeFiles/sma.dir/src/test.cpp.o	49571500a926defc
+1950	1998	1676976936585306192	sma	3f80c77513c91fab

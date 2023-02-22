@@ -34,7 +34,7 @@ TEST_CASE("Unit_Tests") {
 TEST_CASE("Integration_Tests") {
     unsigned int frame = 50;
     int argc = 2; // It`s just a demo for the test.
-    char * argv = "Hello"; // No idea with the input for this param. !!!
+    char * argv; // No idea with the input for this param. !!!
 
     if (argc > 1) {
         std::istringstream ss(argv[1]);
