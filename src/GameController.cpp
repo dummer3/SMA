@@ -36,8 +36,8 @@ void GameController::NewRound() {
   map->PrintMap();
   for (int i = 1; i <= nbrPlayer; i++) {
     players[i]->makeDecision();
-    int result = EvaluateTile(players[i]->getLocation().first,
-                              players[i]->getLocation().second);
+    int result = map->tiles[players[i]->getLocation().first]
+                           [players[i]->getLocation().second];
     if (result >= 1000) {
       suns[result % 1000]->setX(-1);
       suns[result % 1000]->setY(-1);
@@ -102,7 +102,7 @@ void GameController::Destroy() {
 
 int GameController::EvaluateTile(int y, int x) {
   if (y <= 0 || y >= map->height || x <= 0 || x >= map->width ||
-      map->tiles[y][x] == -1) {
+      map->tiles[y][x] == -1 || GameController::Get()->PlayerHere({y, x})) {
     return -10000;
   } else {
     return map->tiles[y][x];
@@ -145,31 +145,38 @@ std::pair<int, int> GameController::A(std::pair<int, int> start,
   };
 
   p_queue<Content, std::vector<Content>, comparator> openList;
-  openList.push(Content{start, 0, 0, {-1, -1}});
+  openList.push(Content{start, 0, dist(start, end), {-1, -1}});
 
   f_stack<Content> closedList;
 
-  auto helloNeighbor = [end, &closedList, &openList](
+  Content closest{start, 0, dist(start, end) * 100, {-1, -1}};
+
+  auto helloNeighbor = [end, &closedList, &openList, &closest](
                            Content &actual, std::pair<int, int> ngh_pos) {
     std::pair<int, int> act_pos = actual.position;
 
     if (ngh_pos.second < map->width && ngh_pos.second > 0 &&
         ngh_pos.first < map->height && ngh_pos.first > 0 &&
-        map->tiles[ngh_pos.first][ngh_pos.second] != -1) {
+        map->tiles[ngh_pos.first][ngh_pos.second] != -1 &&
+        !GameController::Get()->PlayerHere(ngh_pos)) {
 
       Content neighbor(ngh_pos, actual.weight + 1,
                        actual.weight + 1 + dist(ngh_pos, end), act_pos);
 
       if (!(closedList.find(neighbor) || openList.find(neighbor))) {
         openList.push(neighbor);
+        if (dist(end, neighbor.position) + neighbor.weight < closest.prediction)
+          closest = {neighbor.position, neighbor.weight,
+                     dist(end, neighbor.position) + neighbor.weight,
+                     neighbor.parent};
       }
     }
   };
 
-  /*std::cout << "Start "
+  std::cout << "Start "
             << "[" << start.first << ":" << start.second << "] "
             << "End "
-            << "[" << end.first << ":" << end.second << "] " << std::endl;*/
+            << "[" << end.first << ":" << end.second << "] " << std::endl;
 
   bool find = false;
 
@@ -178,11 +185,12 @@ std::pair<int, int> GameController::A(std::pair<int, int> start,
     openList.pop();
 
     /*std::cout << "NEW TILE "
-              << "[" << actual.position.first << ":" << actual.position.second
+              << "[" << actual.position.first << ":" <<
+       actual.position.second
               << "] " << std::endl;*/
 
     if (actual.position == end) {
-      // std::cout << "END ATTEINT " << std::endl;
+      std::cout << "END ATTEINT " << std::endl;
       std::pair<int, int> parent = actual.parent;
       while (parent != start) {
         do {
@@ -206,13 +214,28 @@ std::pair<int, int> GameController::A(std::pair<int, int> start,
       closedList.push(actual);
     }
   }
-  std::cerr << "Objectif non accessible ?!!" << std::endl;
-  exit(1);
+
+  if (closest.parent.first == -1)
+    return start;
+
+  std::cout << "END PAR BLOCAGE ATTEINT " << std::endl;
+  std::pair<int, int> parent = closest.parent;
+  while (parent != start) {
+    do {
+      std::cout << "parent: [" << parent.first << ":" << parent.second
+                << "] closest: [" << closest.position.first << ":"
+                << closest.position.second << "]" << std::endl;
+      closest = closedList.top();
+      closedList.pop();
+    } while (closest.position != parent);
+    parent = closest.parent;
+  }
+  return closest.position;
 }
 
-void GameController::loseSun(Player* player) {
+void GameController::loseSun(Player *player) {
 
-  if(player->getSunshine() > 0) {
+  if (player->getSunshine() > 0) {
 
     player->setSunshine(player->getSunshine() - 1);
     std::pair<int, int> posSun = findFreeTile(player);
@@ -236,12 +259,10 @@ void GameController::loseSun(Player* player) {
       suns[s]->setY(posSun.second);
       map->tiles[posSun.first][posSun.second] = 1000 + s;
     }
-    
   }
-
 }
 
-std::pair<int, int> GameController::findFreeTile(Player* player) {
+std::pair<int, int> GameController::findFreeTile(Player *player) {
 
   std::pair<int, int> pos = player->getLocation();
   std::pair<int, int> posSun = pos;
@@ -256,4 +277,13 @@ std::pair<int, int> GameController::findFreeTile(Player* player) {
   }
 
   return posSun;
+}
+
+bool GameController::PlayerHere(std::pair<int, int> loc) {
+  for (int p = 1; p <= nbrPlayer; p++) {
+    if (players[p]->getLocation() == loc)
+      return true;
+  }
+
+  return false;
 }
