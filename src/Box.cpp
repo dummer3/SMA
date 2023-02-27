@@ -1,4 +1,4 @@
-#include "Box.hpp"
+#include "../includes/Box.hpp"
 
 Box::Box(int y, int x) : IPlaceable(y, x) {}
 
@@ -19,4 +19,6 @@ bool Box::Manage() {
   return cooldown == 0;
 }
 
-Box::~Box() {}
+Box::~Box() {
+  delete content;
+}

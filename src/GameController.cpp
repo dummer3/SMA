@@ -1,4 +1,4 @@
-#include "GameController.hpp"
+#include "../includes/GameController.hpp"
 GameController *GameController::game = nullptr;
 Map *GameController::map = nullptr;
 

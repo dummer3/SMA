@@ -1,5 +1,5 @@
-#include "Object.hpp"
-#include "Player.hpp"
+#include "../includes/Object.hpp"
+#include "../includes/Player.hpp"
 
 Object::~Object() {
 

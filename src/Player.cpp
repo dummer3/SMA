@@ -1,4 +1,4 @@
-#include "Player.hpp"
+#include "../includes/Player.hpp"
 
 Player::Player(Group *g) {
   this->_sunshine = 0;

@@ -1,4 +1,4 @@
-#include "Sun.hpp"
+#include "../includes/Sun.hpp"
 
 Sun::Sun(int y, int x) : IPlaceable(y, x) {}
 
