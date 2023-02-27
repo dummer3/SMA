@@ -11,10 +11,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_compile_options(-g)
 
 # Add the sources
-file(GLOB_RECURSE SOURCES "src/*.cpp")
+file(GLOB_RECURSE LIB_SOURCES "src/*.cpp")
+list(REMOVE_ITEM LIB_SOURCES "src/main.cpp" "src/test.cpp")
+
+file(GLOB_RECURSE LIB_HEADERS "includes/*.hpp")
+
+add_library(smalib ${LIB_SOURCES} ${LIB_HEADERS})
 
 # Define the executable
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME}_test src/test.cpp)
 
 # Define the include directories
-target_include_directories(${PROJECT_NAME} PUBLIC includes)
+target_link_libraries(${PROJECT_NAME} smalib)
+target_link_libraries(${PROJECT_NAME}_test smalib)
