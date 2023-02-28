@@ -9,6 +9,12 @@ Player::Player(Group *g) {
   this->_group->AddPlayer(this);
 }
 
+Player::~Player() {
+  if (this->_object != nullptr) {
+    delete this->_object;
+  }
+}
+
 void Player::setSunshine(int numOfsunshine) { this->_sunshine = numOfsunshine; }
 
 int Player::getSunshine(){
@@ -16,7 +22,10 @@ int Player::getSunshine(){
 }
 
 void Player::setObject(Object * object){
-    this->_object = object;
+  if (this->_object != nullptr) {
+    delete this->_object;
+  }
+  this->_object = object;
 }
 
 Object *Player::getObject() { return _object; }

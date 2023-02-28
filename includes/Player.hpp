@@ -31,6 +31,7 @@ class Player : public IPlaceable {
 
 public:
   Player(Group *g);
+  ~Player();
 
   void setSunshine(int numOfSunshine);
   int getSunshine();

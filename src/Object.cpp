@@ -10,9 +10,9 @@ Mushroom::Mushroom() {
 }
 
 void Mushroom::useEffect(Player* player) {
-  std::cout << "Mushroom action" << std::endl;
   player->setBoostTimer(3);
   player->setSpeed(2);
+  delete this;
 }
 
 void Mushroom::hitEffect(Player* player) {

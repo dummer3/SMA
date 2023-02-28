@@ -56,8 +56,9 @@ void Map::InitBS() {
 
 void Map::DeleteBS() {
   for (int b = 0; b < nbrBox; b++)
-    if (boxs[b] != NULL)
+    if (boxs[b] != nullptr) {
       delete boxs[b];
+    }
 
   delete[] boxs;
 }
