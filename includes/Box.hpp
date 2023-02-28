@@ -9,12 +9,12 @@ class Box : public IPlaceable {
 
 private:
   Object *content;
-  int cooldown;
+  int cooldown = -1;
 
 public:
   Box(int, int);
   virtual ~Box();
-  virtual void action();
+  virtual void hitEffect(Player*);
   Object *GetContent();
   bool Manage();
 };
