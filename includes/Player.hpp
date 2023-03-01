@@ -19,7 +19,7 @@ class Player : public IPlaceable {
   // Unit: TILE/TICK
   int _speed;
   int _boost_timer;
-  Object *_object;
+  Object *_object = nullptr;
   Group *_group;
   /**
    * In our situation, every player should be created by

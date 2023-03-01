@@ -2,7 +2,7 @@
 
 Player::Player(Group *g) {
   this->_sunshine = 0;
-  this->_object = NULL;
+  this->_object = nullptr;
   this->_group = g;
   this->_direction = Up; // Direction up by default
   this->_speed = 0;
@@ -69,7 +69,7 @@ int Player::makeDecision() {
   std::pair<int, int> pos;
   pos.first = pos.second = 0;
 
-    for (int radius = 1; radius < 10 && interest < 10; radius++) {
+  for (int radius = 1; radius < 10 && interest < 10; radius++) {
     // Watch Left and Up, then Right and Down
     for (int i = -1; i <= 1 && interest < 10; i += 2) {
 
@@ -84,7 +84,7 @@ int Player::makeDecision() {
         // Scan Horizontaly
         int test = GameController::Get()->EvaluateTile(
                 _location.first + radius * i, _location.second + line) /
-                   100;
+                  100;
 
         // Scan Vertically and keep the best one
         if (GameController::Get()->EvaluateTile(_location.first + line,
@@ -94,7 +94,7 @@ int Player::makeDecision() {
 
           test = GameController::Get()->EvaluateTile(
               _location.first + line, _location.second + radius * i) /
-                 100;
+                100;
           dY = 0;
           dX = i;
           p.first = _location.first + line,

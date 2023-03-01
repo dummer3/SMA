@@ -39,10 +39,11 @@ void GameController::NewRound() {
       suns[result % 1000]->setY(-1);
       map->tiles[players[i]->getLocation().first]
                 [players[i]->getLocation().second] = 0;
-      // TODO: Give the sun to the player
+      // Give the sun to the player
+      suns[result % 1000]->hitEffect(players[i]);
     } else if (result >= 100) {
-      // TODO: Give the object to the player
-      map->boxs[result % 100]->GetContent();
+      // Give the object to the player
+      map->boxs[result % 100]->hitEffect(players[i]);
       map->tiles[players[i]->getLocation().first]
                 [players[i]->getLocation().second] = 0;
     }

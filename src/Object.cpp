@@ -28,11 +28,14 @@ void RedShell::useEffect(Player* player) {
 }
 
 void RedShell::hitEffect(Player* player) {
-  std::cout << "RedShell hit" << std::endl;
+  // TODO: make player lose suns
+  player->setBoostTimer(5);
+  player->setSpeed(0);
+  delete this;
 }
 
 Banana::Banana() {
-
+  
 }
 
 void Banana::useEffect(Player* player) {
@@ -40,5 +43,8 @@ void Banana::useEffect(Player* player) {
 }
 
 void Banana::hitEffect(Player* player) {
-  std::cout << "Banana hit" << std::endl;
+  // TODO: make player lose suns
+  player->setBoostTimer(4);
+  player->setSpeed(0);
+  delete this;
 }

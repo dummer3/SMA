@@ -11,8 +11,7 @@ Object *Box::GetContent() {
 }
 
 void Box::hitEffect(Player* player) {
-  player->setObject(content);
-  content = nullptr;
+  player->setObject(GetContent());
 }
 
 bool Box::Manage() {
