@@ -2,6 +2,7 @@
 #define IPLACEABLE_H
 
 #include <iostream>
+enum Direction { Up, Down, Left, Right };
 
 class IPlaceable {
 private:

@@ -1,5 +1,9 @@
 #include "../includes/GameController.hpp"
+#include <typeinfo>
+#include "../includes/Object.hpp"
+
 GameController *GameController::game = nullptr;
+
 Map *GameController::map = nullptr;
 
 GameController::GameController(int nbrPlayer, int height, int width)
@@ -53,7 +57,26 @@ void GameController::NewRound() {
       map->tiles[map->boxs[b]->getY()][map->boxs[b]->getX()] = 100 + b;
     }
   }
+
+  // Manage objects (shells, bananas)
+  for(Object* o : objects) {
+    // if o is shell make it move
+    if(typeid(*o).name() == "RedShell") {
+      RedShell& rs = dynamic_cast<RedShell&>(*o);
+      rs.move();
+    }
+    // if object hit player, player lose sun and hitEffect
+    for(int i = 1; i <= nbrPlayer; i++) {
+      IPlaceable* ip = dynamic_cast<IPlaceable*>(o); 
+      if(ip->getX() == players[i]->getX() && ip->getY() == players[i]->getY()) {
+        loseSun(players[i]);
+        o->hitEffect(players[i]);
+      }
+    }
+  }
+
 }
+
 void GameController::InitGame() { map->GenerateQuarterMap(); }
 
 void GameController::Destroy() {
@@ -185,4 +208,52 @@ std::pair<int, int> GameController::A(std::pair<int, int> start,
   }
   std::cerr << "Objectif non accessible ?!!" << std::endl;
   exit(1);
+}
+
+void GameController::loseSun(Player* player) {
+
+  if(player->getSunshine() > 0) {
+
+    player->setSunshine(player->getSunshine() - 1);
+    std::pair<int, int> posSun = findFreeTile(player);
+    int s = 0;
+    bool found = false;
+
+    // find first sun in -1,-1
+    while (!found) {
+      if ((suns[s]->getX() == -1 && suns[s]->getY() == -1) || s == nbrSun) {
+        found = true;
+      } else {
+        s++;
+      }
+    }
+
+    if (s == nbrSun) {
+      std::cerr << "No more sun available" << std::endl;
+      exit(1);
+    } else {
+      suns[s]->setX(posSun.first);
+      suns[s]->setY(posSun.second);
+      map->tiles[posSun.first][posSun.second] = 1000 + s;
+    }
+    
+  }
+
+}
+
+std::pair<int, int> GameController::findFreeTile(Player* player) {
+
+  std::pair<int, int> pos = player->getLocation();
+  std::pair<int, int> posSun = pos;
+
+  for (int i = pos.first - 2; i < pos.first + 2; i++) {
+    for (int j = pos.second - 2; j < pos.second + 2; j++) {
+      if (EvaluateTile(i, j) == 0 && i != pos.first && j != pos.second) {
+        posSun.first = i;
+        posSun.second = j;
+      }
+    }
+  }
+
+  return posSun;
 }

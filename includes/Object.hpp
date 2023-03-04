@@ -105,10 +105,18 @@ class RedShell : public IPlaceable, public Object {
   public:
     /**
      * 
+     * \brief direction of the shell
+     * 
+    */
+    Direction direction;
+
+    /**
+     * 
      * \brief constructor of the red shell
      * 
      */
     RedShell();
+    RedShell(Direction);
 
     /**
      * 
@@ -123,6 +131,13 @@ class RedShell : public IPlaceable, public Object {
      * 
      */
     void hitEffect(Player*) override;
+
+    /**
+     * 
+     * \brief make the shell move
+     * 
+     */
+    void move();
 };
 
 

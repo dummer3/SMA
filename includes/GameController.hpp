@@ -6,6 +6,7 @@
 #include "Sun.hpp"
 #include "f_stack.hpp"
 #include "p_queue.hpp"
+#include <list>
 
 class Map;
 class Player;
@@ -22,6 +23,7 @@ private:
   int nbrSun = 5;
   Player **players;
   Sun **suns;
+  std::list<Object*> objects;
 
   Group *g1;
   Group *g2;
@@ -37,6 +39,8 @@ public:
   void ManagePlayer();
   int EvaluateTile(int, int);
   std::pair<int, int> A(std::pair<int, int> start, std::pair<int, int> end);
+  void loseSun(Player*);
+  std::pair<int, int> findFreeTile(Player*);
 
   static GameController *Get(int = 8);
 

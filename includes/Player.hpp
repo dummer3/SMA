@@ -7,8 +7,6 @@
 #include "Group.hpp"
 #include "Object.hpp"
 
-enum Direction { Up, Down, Left, Right };
-
 class Group;
 
 class Player : public IPlaceable {
