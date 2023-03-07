@@ -445,13 +445,13 @@ void Map::PrintMap() const {
           color += "^ ";
           break;
         case Down:
-          color += "v ";
+          color += " v";
           break;
         case Left:
           color += "< ";
           break;
         case Right:
-          color += "> ";
+          color += " >";
           break;
         }
       } else

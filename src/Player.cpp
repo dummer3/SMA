@@ -117,11 +117,24 @@ int Player::makeDecision() {
 }
 
 void Player::setLocation(int y, int x) {
+
   _location.first = y;
   _location.second = x;
 }
 
-void Player::setLocation(std::pair<int, int> l) { _location = l; }
+void Player::setLocation(std::pair<int, int> l) {
+
+  if (l.second < _location.second)
+    _direction = Left;
+  else if (l.second > _location.second)
+    _direction = Right;
+  else if (l.first < _location.first)
+    _direction = Up;
+  else
+    _direction = Down;
+
+  _location = l;
+}
 
 std::pair<int, int> Player::getLocation() const { return _location; }
 

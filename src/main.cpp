@@ -1,4 +1,5 @@
 #include "../includes/Map.hpp"
+#include "catch.hpp"
 #include <iostream>
 #include <sstream>
 #include <unistd.h>
@@ -20,6 +21,7 @@ int main(int argc, char **argv) {
 
   GameController *g = GameController::Get();
   g->InitGame();
+
   for (int i = 0; i < 100; i++) {
     g->NewRound();
     usleep(frame);

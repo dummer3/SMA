@@ -140,7 +140,7 @@ std::pair<int, int> GameController::A(std::pair<int, int> start,
   class comparator {
   public:
     bool operator()(const Content &c1, const Content &c2) const {
-      return c2.prediction <= c1.prediction;
+      return c2.prediction < c1.prediction;
     }
   };
 
@@ -173,10 +173,10 @@ std::pair<int, int> GameController::A(std::pair<int, int> start,
     }
   };
 
-  std::cout << "Start "
+  /*std::cout << "Start "
             << "[" << start.first << ":" << start.second << "] "
             << "End "
-            << "[" << end.first << ":" << end.second << "] " << std::endl;
+            << "[" << end.first << ":" << end.second << "] " << std::endl;*/
 
   bool find = false;
 
@@ -185,12 +185,11 @@ std::pair<int, int> GameController::A(std::pair<int, int> start,
     openList.pop();
 
     /*std::cout << "NEW TILE "
-              << "[" << actual.position.first << ":" <<
-       actual.position.second
+              << "[" << actual.position.first << ":" << actual.position.second
               << "] " << std::endl;*/
 
     if (actual.position == end) {
-      std::cout << "END ATTEINT " << std::endl;
+      // std::cout << "END ATTEINT " << std::endl;
       std::pair<int, int> parent = actual.parent;
       while (parent != start) {
         do {
@@ -218,13 +217,13 @@ std::pair<int, int> GameController::A(std::pair<int, int> start,
   if (closest.parent.first == -1)
     return start;
 
-  std::cout << "END PAR BLOCAGE ATTEINT " << std::endl;
+  // std::cout << "END PAR BLOCAGE ATTEINT " << std::endl;
   std::pair<int, int> parent = closest.parent;
   while (parent != start) {
     do {
-      std::cout << "parent: [" << parent.first << ":" << parent.second
+      /*  std::cout << "parent: [" << parent.first << ":" << parent.second
                 << "] closest: [" << closest.position.first << ":"
-                << closest.position.second << "]" << std::endl;
+                << closest.position.second << "]" << std::endl;*/
       closest = closedList.top();
       closedList.pop();
     } while (closest.position != parent);
