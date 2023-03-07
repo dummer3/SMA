@@ -23,7 +23,7 @@ private:
   int nbrSun = 5;
   Player **players;
   Sun **suns;
-  std::list<Object *> objects;
+  IPlaceable **objects;
 
   Group *g1;
   Group *g2;
@@ -42,6 +42,7 @@ public:
   void loseSun(Player *);
   std::pair<int, int> findFreeTile(Player *);
   bool PlayerHere(std::pair<int, int>);
+  void PlaceNewObject(IPlaceable *);
 
   static GameController *Get(int = 8);
 

@@ -404,6 +404,7 @@ void Map::GenerateQuarterMap() {
 }
 
 int Map::GetAtIndex(int posY, int posX) const { return tiles[posY][posX]; }
+void Map::SetAtIndex(int posY, int posX, int i) { tiles[posY][posX] = i; }
 
 void Map::PrintMap() const {
 
@@ -465,20 +466,4 @@ void Map::PrintMap() const {
 
   // Place the map on the terminal correctly
   std::cout << "\033[2J";
-
-  /*std::cout << std::endl;
-  for (int s = 0; s < GameController::Get()->nbrSun; s++) {
-    GameController::Get()->suns[s]->action();
-  }
-  std::cout << std::endl;
-  for (int b = 0; b < nbrBox; b++) {
-    boxs[b]->action();
-  }
-  std::cout << std::endl;
-
-  for (int p = 1; p <= GameController::Get()->nbrPlayer; p++) {
-    std::pair<int, int> l = GameController::Get()->players[p]->getLocation();
-    std::cout << "Player[" << l.first << ":" << l.second << "]" << std::endl;
-  }
-  std::cout << std::endl;*/
 }

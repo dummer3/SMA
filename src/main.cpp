@@ -1,5 +1,5 @@
 #include "../includes/Map.hpp"
-#include "catch.hpp"
+#include "../includes/catch.hpp"
 #include <iostream>
 #include <sstream>
 #include <unistd.h>

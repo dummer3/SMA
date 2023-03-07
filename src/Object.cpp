@@ -54,12 +54,29 @@ void RedShell::move() {
   }
 }
 
-Banana::Banana() {
-  
-}
+Banana::Banana() {}
 
-void Banana::useEffect(Player* player) {
-  std::cout << "Banana action" << std::endl;
+Banana::Banana(int y, int x) : IPlaceable(y, x) {}
+
+void Banana::useEffect(Player *player) {
+  Banana b(player->getY(), player->getX());
+
+  switch (player->getDirection()) {
+  case Up:
+    b.setY(b.getY() - 1);
+    break;
+  case Down:
+    b.setY(b.getY() + 1);
+    break;
+  case Left:
+    b.setX(b.getX() + 1);
+    break;
+  case Right:
+    b.setX(b.getX() - 1);
+    break;
+  }
+
+  GameController::Get()->PlaceNewObject(&b);
 }
 
 void Banana::hitEffect(Player* player) {

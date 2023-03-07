@@ -19,6 +19,11 @@ GameController::GameController(int nbrPlayer, int height, int width)
     suns[s] = nullptr;
   }
 
+  objects = new IPlaceable *[80];
+  for (int s = 1; s < 80; s++) {
+    objects[s] = nullptr;
+  }
+
   map = new Map(height, width);
 }
 
@@ -59,7 +64,7 @@ void GameController::NewRound() {
   }
 
   // Manage objects (shells, bananas)
-  for(Object* o : objects) {
+  /* for(Object* o : objects) {
     // if o is shell make it move
     if(typeid(*o).name() == "RedShell") {
       RedShell& rs = dynamic_cast<RedShell&>(*o);
@@ -67,14 +72,13 @@ void GameController::NewRound() {
     }
     // if object hit player, player lose sun and hitEffect
     for(int i = 1; i <= nbrPlayer; i++) {
-      IPlaceable* ip = dynamic_cast<IPlaceable*>(o); 
+      IPlaceable* ip = dynamic_cast<IPlaceable*>(o);
       if(ip->getX() == players[i]->getX() && ip->getY() == players[i]->getY()) {
         loseSun(players[i]);
         o->hitEffect(players[i]);
       }
     }
-  }
-
+    }*/
 }
 
 void GameController::InitGame() { map->GenerateQuarterMap(); }
@@ -285,4 +289,16 @@ bool GameController::PlayerHere(std::pair<int, int> loc) {
   }
 
   return false;
+}
+
+void GameController::PlaceNewObject(IPlaceable *o) {
+  int index = 0;
+  for (int i = 0; i < 80; i++) {
+    if (objects[i] == nullptr) {
+      index = 0;
+      break;
+    }
+  }
+  objects[index] = o;
+  map->SetAtIndex(o->getY(), o->getX(), 10 + index);
 }
