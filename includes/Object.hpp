@@ -116,7 +116,7 @@ class RedShell : public IPlaceable, public Object {
      * 
      */
     RedShell();
-    RedShell(Direction);
+    RedShell(int, int, Direction);
 
     /**
      * 
