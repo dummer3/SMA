@@ -3,21 +3,25 @@
 
 Box::Box(int y, int x) : IPlaceable(y, x) {}
 
-Object *Box::GetContent() {
+Object *Box::GetContent()
+{
   cooldown = 5;
-  Object* cont = content;
+  Object *cont = content;
   content = nullptr;
   return cont;
 }
 
-void Box::hitEffect(Player* player) {
+void Box::hitEffect(Player *player)
+{
   player->setObject(GetContent());
 }
 
-bool Box::Manage() {
+bool Box::Manage()
+{
   int random = rand() % 3;
   cooldown--;
-  if (cooldown == 0) {
+  if (cooldown == 0)
+  {
     switch (random)
     {
     case 0:
@@ -34,6 +38,7 @@ bool Box::Manage() {
   return cooldown == 0;
 }
 
-Box::~Box() {
+Box::~Box()
+{
   delete content;
 }

@@ -9,7 +9,7 @@ class Box : public IPlaceable {
 
 private:
   Object *content;
-  int cooldown = -1;
+  int cooldown = 1;
 
 public:
   Box(int, int);
