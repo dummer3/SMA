@@ -93,12 +93,17 @@ void GameController::Destroy() {
   for (int p = 1; p <= nbrPlayer; p++) {
     delete players[p];
   }
-  delete players;
+  delete[] players;
 
   for (int s = 0; s < nbrSun; s++) {
     delete suns[s];
   }
-  delete suns;
+  delete[] suns;
+
+  for (int o = 0; o < 80; o++) {
+    delete objects[o];
+  }
+  delete[] objects;
 
   delete game;
   game = nullptr;
