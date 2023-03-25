@@ -42,6 +42,9 @@ public:
   void setBoostTimer(int boost_timer);
   int getBoostTimer();
 
+  int getY() const {return _location.first;}
+  int getX() const {return _location.second;}
+
   // void agir(); // il va agir,
   void seDeplacer();
   void useObject();
