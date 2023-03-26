@@ -23,35 +23,35 @@ RedShell::RedShell() {
 
 }
 
-RedShell::RedShell(int y, int x, Direction direction) : direction(direction) {
+RedShell::RedShell(int y, int x, Direction direction) : IPlaceable(y, x), direction(direction) {
 
 }
 
 void RedShell::useEffect(Player* player) {
-  RedShell* r = new RedShell(player->getY(), player->getX(), player->getDirection());
+  setX(player->getX());
+  setY(player->getY());
 
   switch (player->getDirection()) {
   case Up:
-    r->setY(r->getY() - 1);
+    setY(getY() - 1);
     break;
   case Down:
-    r->setY(r->getY() + 1);
+    setY(getY() + 1);
     break;
   case Left:
-    r->setX(r->getX() + 1);
+    setX(getX() + 1);
     break;
   case Right:
-    r->setX(r->getX() - 1);
+    setX(getX() - 1);
     break;
   }
 
-  GameController::Get()->PlaceNewObject(r);
+  GameController::Get()->PlaceNewObject(this);
 }
 
 void RedShell::hitEffect(Player* player) {
   player->setBoostTimer(5);
   player->setSpeed(0);
-  delete this;
 }
 
 void RedShell::move() {
@@ -76,28 +76,28 @@ Banana::Banana() {}
 Banana::Banana(int y, int x) : IPlaceable(y, x) {}
 
 void Banana::useEffect(Player *player) {
-  Banana* b = new Banana(player->getY(), player->getX());
+  setX(player->getX());
+  setY(player->getY());
 
   switch (player->getDirection()) {
   case Up:
-    b->setY(b->getY() - 1);
+    setY(getY() - 1);
     break;
   case Down:
-    b->setY(b->getY() + 1);
+    setY(getY() + 1);
     break;
   case Left:
-    b->setX(b->getX() + 1);
+    setX(getX() + 1);
     break;
   case Right:
-    b->setX(b->getX() - 1);
+    setX(getX() - 1);
     break;
   }
 
-  GameController::Get()->PlaceNewObject(b);
+  GameController::Get()->PlaceNewObject(this);
 }
 
 void Banana::hitEffect(Player* player) {
   player->setBoostTimer(4);
   player->setSpeed(0);
-  delete this;
 }

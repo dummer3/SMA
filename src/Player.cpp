@@ -63,9 +63,14 @@ int Player::getBoostTimer()
   return _boost_timer;
 }
 
-int Player::makeDecision() { 
-  seDeplacer();
-  return 2;
+int Player::makeDecision() {
+  if(this->_object != nullptr) {
+    useObject();
+    return 1;
+  } else {
+    seDeplacer();
+    return 2;
+  }
 }
 
 void Player::useObject()

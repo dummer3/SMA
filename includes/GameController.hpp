@@ -36,7 +36,9 @@ public:
   void CreateGame();
   void InitGame();
   void NewRound();
-  void ManagePlayer();
+  void ManagePlayers();
+  void ManageBoxes();
+  void ManageObjects();
   int EvaluateTile(int, int);
   std::pair<int, int> A(std::pair<int, int> start, std::pair<int, int> end);
   void loseSun(Player *);

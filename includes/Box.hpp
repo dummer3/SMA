@@ -17,5 +17,6 @@ public:
   virtual void hitEffect(Player*);
   Object *GetContent();
   bool Manage();
+  void generateContent();
 };
 #endif /* BOX_H */

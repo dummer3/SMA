@@ -10,6 +10,7 @@
  **/
 
 #include "../includes/Map.hpp"
+#include <typeinfo>
 
 /*****************************************************************************/
 /*                                                                           */
@@ -417,7 +418,7 @@ void Map::PrintMap() const {
       std::string color;
       int tile = tiles[y][x];
 
-      if (tile == 0)
+      if (tile == 0 || (tile > 10 && tile < 80))
         colorBack = COLOR_BACK_BLACK;
       else if (tile == -1)
         colorBack = COLOR_BACK_WHITE;
@@ -457,6 +458,19 @@ void Map::PrintMap() const {
         }
       } else
         color = "  ";
+
+      // Loop on the objects
+      for (int i = 1; i < 80; i++) {
+        IPlaceable * o = GameController::Get()->objects[i];
+        if(o != nullptr && o->getY() == y && o->getX() == x) {
+          if(typeid(*o).name() == typeid(Banana).name()) {
+            color = COLOR_YELLOW + " B";
+          }
+          else if(typeid(*o).name() == typeid(RedShell).name()) {
+            color = COLOR_RED + " R";
+          }
+        }
+      }
 
       // Print it!
       std::cout << colorBack << color << COLOR_BACK_DEF << COLOR_DEF;
