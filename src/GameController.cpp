@@ -2,7 +2,6 @@
 #include <typeinfo>
 #include "../includes/Object.hpp"
 
-
 GameController *GameController::game = nullptr;
 
 Map *GameController::map = nullptr;
@@ -47,7 +46,7 @@ GameController *GameController::Get(int n)
 void GameController::NewRound()
 {
   map->PrintMap();
-  
+
   ManagePlayers();
 
   ManageBoxes();
@@ -55,27 +54,36 @@ void GameController::NewRound()
   ManageObjects();
 }
 
-void GameController::ManagePlayers() {
+void GameController::ManagePlayers()
+{
   for (int i = 1; i <= nbrPlayer; i++)
   {
-    players[i]->makeDecision();
-    int result = map->tiles[players[i]->getLocation().first]
-                           [players[i]->getLocation().second];
-    if (result >= 1000)
+    for (int j = 0; j < players[i]->getSpeed(); j++)
     {
-      suns[result % 1000]->setX(-1);
-      suns[result % 1000]->setY(-1);
-      map->tiles[players[i]->getLocation().first]
-                [players[i]->getLocation().second] = 0;
-      // Give the sun to the player
-      suns[result % 1000]->hitEffect(players[i]);
+      players[i]->makeDecision();
+      int result = map->tiles[players[i]->getLocation().first]
+                             [players[i]->getLocation().second];
+      if (result >= 1000)
+      {
+        suns[result % 1000]->setX(-1);
+        suns[result % 1000]->setY(-1);
+        map->tiles[players[i]->getLocation().first]
+                  [players[i]->getLocation().second] = 0;
+        // Give the sun to the player
+        suns[result % 1000]->hitEffect(players[i]);
+      }
+      else if (result >= 100)
+      {
+        // Give the object to the player
+        map->boxs[result % 100]->hitEffect(players[i]);
+        map->tiles[players[i]->getLocation().first]
+                  [players[i]->getLocation().second] = 0;
+      }
     }
-    else if (result >= 100)
+    players[i]->setBoostTimer(players[i]->getBoostTimer() - 1);
+    if (players[i]->getBoostTimer() == 0)
     {
-      // Give the object to the player
-      map->boxs[result % 100]->hitEffect(players[i]);
-      map->tiles[players[i]->getLocation().first]
-                [players[i]->getLocation().second] = 0;
+      players[i]->setSpeed(1);
     }
   }
 }
@@ -91,7 +99,8 @@ void GameController::ManageBoxes()
   }
 }
 
-void GameController::ManageObjects() {
+void GameController::ManageObjects()
+{
   for (int o = 1; o < 80; o++)
   {
     if (objects[o] != nullptr) // check if object exists
@@ -102,10 +111,11 @@ void GameController::ManageObjects() {
         RedShell *rs = dynamic_cast<RedShell *>(objects[o]);
         rs->move();
         // check if the shell hit a wall
-        if (map->tiles[rs->getY()][rs->getX()] == 1)
+        if (map->tiles[rs->getY()][rs->getX()] == -1)
         {
           delete objects[o];
           objects[o] = nullptr;
+          break;
         }
       }
       // if object hit player, player lose sun and hitEffect
@@ -383,15 +393,21 @@ bool GameController::PlayerHere(std::pair<int, int> loc)
 
 void GameController::PlaceNewObject(IPlaceable *o)
 {
-  int index = 0;
-  for (int i = 1; i < 80; i++)
+  if (map->GetAtIndex(o->getY(), o->getX()) != -1)
   {
-    if (objects[i] == nullptr)
+    int index = 0;
+    for (int i = 1; i < 80; i++)
     {
-      index = i;
-      break;
+      if (objects[i] == nullptr)
+      {
+        index = i;
+        break;
+      }
     }
+    objects[index] = o;
+    map->SetAtIndex(o->getY(), o->getX(), 10 + index);
   }
-  objects[index] = o;
-  map->SetAtIndex(o->getY(), o->getX(), 10 + index);
+  else {
+    delete o;
+  }
 }

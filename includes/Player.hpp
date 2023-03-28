@@ -12,7 +12,6 @@ class Group;
 class Player : public IPlaceable {
 
   std::pair<int, int> _location;
-  Direction _direction;
   int _sunshine;
   // Unit: TILE/TICK
   int _speed;
@@ -35,8 +34,6 @@ public:
   int getSunshine();
   void setObject(Object *objet);
   Object *getObject();
-  void setDirection(Direction direction);
-  Direction getDirection();
   void setSpeed(int speed);
   int getSpeed();
   void setBoostTimer(int boost_timer);

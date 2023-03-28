@@ -23,13 +23,14 @@ RedShell::RedShell() {
 
 }
 
-RedShell::RedShell(int y, int x, Direction direction) : IPlaceable(y, x), direction(direction) {
+RedShell::RedShell(int y, int x, Direction direction) : IPlaceable(y, x, direction) {
 
 }
 
 void RedShell::useEffect(Player* player) {
   setX(player->getX());
   setY(player->getY());
+  setDirection(player->getDirection());
 
   switch (player->getDirection()) {
   case Up:
@@ -39,10 +40,10 @@ void RedShell::useEffect(Player* player) {
     setY(getY() + 1);
     break;
   case Left:
-    setX(getX() + 1);
+    setX(getX() - 1);
     break;
   case Right:
-    setX(getX() - 1);
+    setX(getX() + 1);
     break;
   }
 
@@ -55,7 +56,7 @@ void RedShell::hitEffect(Player* player) {
 }
 
 void RedShell::move() {
-  switch(direction) {
+  switch(getDirection()) {
     case Up:
       setY(getY() - 1);
       break;

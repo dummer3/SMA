@@ -105,13 +105,6 @@ class RedShell : public IPlaceable, public Object {
   public:
     /**
      * 
-     * \brief direction of the shell
-     * 
-    */
-    Direction direction;
-
-    /**
-     * 
      * \brief constructor of the red shell
      * 
      */

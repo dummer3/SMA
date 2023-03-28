@@ -5,8 +5,8 @@ Player::Player(Group *g)
   this->_sunshine = 0;
   this->_object = nullptr;
   this->_group = g;
-  this->_direction = Up; // Direction up by default
-  this->_speed = 0;
+  this->setDirection(Up); // Direction up by default
+  this->_speed = 1;
   this->_group->AddPlayer(this);
 }
 
@@ -35,13 +35,6 @@ void Player::setObject(Object *object)
 }
 
 Object *Player::getObject() { return _object; }
-
-void Player::setDirection(Direction direction) { this->_direction = direction; }
-
-Direction Player::getDirection()
-{
-  return _direction;
-}
 
 void Player::setSpeed(int speed)
 {
@@ -153,13 +146,13 @@ void Player::setLocation(std::pair<int, int> l)
 {
 
   if (l.second < _location.second)
-    _direction = Left;
+    setDirection(Left);
   else if (l.second > _location.second)
-    _direction = Right;
+    setDirection(Right);
   else if (l.first < _location.first)
-    _direction = Up;
+    setDirection(Up);
   else
-    _direction = Down;
+    setDirection(Down);
 
   _location = l;
 }
