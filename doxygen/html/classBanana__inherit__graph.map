@@ -1,0 +1,5 @@
+<map id="Banana" name="Banana">
+<area shape="rect" id="node1" title="Class for the banana object." alt="" coords="65,80,136,107"/>
+<area shape="rect" id="node2" href="$classIPlaceable.html" title="Interface for every object which can be place on the map." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node3" href="$classObject.html" title="Abstract class for all objects." alt="" coords="119,5,183,32"/>
+</map>

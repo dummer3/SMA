@@ -1,0 +1,4 @@
+<map id="Sun" name="Sun">
+<area shape="rect" id="node1" title="The Sun is the objectif for the player." alt="" coords="27,80,73,107"/>
+<area shape="rect" id="node2" href="$classIPlaceable.html" title="Interface for every object which can be place on the map." alt="" coords="5,5,95,32"/>
+</map>

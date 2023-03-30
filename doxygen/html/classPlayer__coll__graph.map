@@ -1,0 +1,4 @@
+<map id="Player" name="Player">
+<area shape="rect" id="node1" title="Represent a player in our game." alt="" coords="19,80,81,107"/>
+<area shape="rect" id="node2" href="$classIPlaceable.html" title="Interface for every object which can be place on the map." alt="" coords="5,5,95,32"/>
+</map>
