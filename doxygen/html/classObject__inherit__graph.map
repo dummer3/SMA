@@ -1,0 +1,6 @@
+<map id="Object" name="Object">
+<area shape="rect" id="node1" title="Abstract class for all objects." alt="" coords="114,5,178,32"/>
+<area shape="rect" id="node2" href="$classBanana.html" title="Class for the banana object." alt="" coords="5,80,76,107"/>
+<area shape="rect" id="node3" href="$classMushroom.html" title="Class for the mushroom object." alt="" coords="101,80,191,107"/>
+<area shape="rect" id="node4" href="$classRedShell.html" title="Class for the red shell object." alt="" coords="216,80,295,107"/>
+</map>

@@ -10,6 +10,7 @@
  **/
 
 #include "../includes/Map.hpp"
+#include <typeinfo>
 
 /*****************************************************************************/
 /*                                                                           */
@@ -404,6 +405,7 @@ void Map::GenerateQuarterMap() {
 }
 
 int Map::GetAtIndex(int posY, int posX) const { return tiles[posY][posX]; }
+void Map::SetAtIndex(int posY, int posX, int i) { tiles[posY][posX] = i; }
 
 void Map::PrintMap() const {
 
@@ -416,14 +418,25 @@ void Map::PrintMap() const {
       std::string color;
       int tile = tiles[y][x];
 
-      if (tile == 0)
+      if (tile == 0 || (tile > 10 && tile < 80))
         colorBack = COLOR_BACK_BLACK;
       else if (tile == -1)
         colorBack = COLOR_BACK_WHITE;
       else if (tile >= 1000)
         colorBack = COLOR_BACK_YELLOW;
-      else
+      else if (tile >= 100)
         colorBack = COLOR_BACK_BLUE;
+      else if (tile > 10) {
+        std::string name =
+            typeid(GameController::Get()->objects[tile - 10]).name();
+        if (name == "Banana") {
+          color = COLOR_YELLOW + "BB";
+        } else {
+          color = COLOR_BLUE + "OO";
+        }
+      } else {
+        color = "  ";
+      }
 
       // choose the correct color
       Player *p = nullptr;
@@ -454,31 +467,25 @@ void Map::PrintMap() const {
           color += " >";
           break;
         }
-      } else
-        color = "  ";
+        // Loop on the objects
+        for (int i = 1; i < 80; i++) {
+          IPlaceable *o = GameController::Get()->objects[i];
+          if (o != nullptr && o->getY() == y && o->getX() == x) {
+            if (typeid(*o).name() == typeid(Banana).name()) {
+              color = COLOR_YELLOW + " B";
+            } else if (typeid(*o).name() == typeid(RedShell).name()) {
+              color = COLOR_RED + " R";
+            }
+          }
+        }
 
-      // Print it!
-      std::cout << colorBack << color << COLOR_BACK_DEF << COLOR_DEF;
+        // Print it!
+        std::cout << colorBack << color << COLOR_BACK_DEF << COLOR_DEF;
+      }
+      std::cout << std::endl;
     }
-    std::cout << std::endl;
   }
 
   // Place the map on the terminal correctly
   std::cout << "\033[2J";
-
-  /*std::cout << std::endl;
-  for (int s = 0; s < GameController::Get()->nbrSun; s++) {
-    GameController::Get()->suns[s]->action();
-  }
-  std::cout << std::endl;
-  for (int b = 0; b < nbrBox; b++) {
-    boxs[b]->action();
-  }
-  std::cout << std::endl;
-
-  for (int p = 1; p <= GameController::Get()->nbrPlayer; p++) {
-    std::pair<int, int> l = GameController::Get()->players[p]->getLocation();
-    std::cout << "Player[" << l.first << ":" << l.second << "]" << std::endl;
-  }
-  std::cout << std::endl;*/
 }

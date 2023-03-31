@@ -1,0 +1,12 @@
+<map id="includes/p_queue.hpp" name="includes/p_queue.hpp">
+<area shape="rect" id="node1" title="Template for a priority queue with extension." alt="" coords="157,5,320,32"/>
+<area shape="rect" id="node2" href="$GameController_8hpp.html" title="Header for our Singleton GameController class." alt="" coords="133,80,344,107"/>
+<area shape="rect" id="node3" href="$Map_8hpp.html" title="Header for our Map class." alt="" coords="5,229,141,256"/>
+<area shape="rect" id="node5" href="$Player_8hpp.html" title="Header for our Player class." alt="" coords="164,155,313,181"/>
+<area shape="rect" id="node10" href="$GameController_8cpp.html" title="Source Code for our GameController class." alt="" coords="338,155,513,181"/>
+<area shape="rect" id="node4" href="$Map_8cpp.html" title="Source file for our Map class." alt="" coords="23,304,123,331"/>
+<area shape="rect" id="node6" href="$Group_8hpp.html" title="Header for our Group class." alt="" coords="165,229,312,256"/>
+<area shape="rect" id="node8" href="$Box_8cpp.html" title="Source file for our Box class." alt="" coords="337,229,434,256"/>
+<area shape="rect" id="node9" href="$Object_8cpp.html" title="Source file for our Box class." alt="" coords="459,229,573,256"/>
+<area shape="rect" id="node7" href="$Group_8cpp.html" title="Source file for our Group class." alt="" coords="183,304,294,331"/>
+</map>

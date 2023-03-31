@@ -1,0 +1,16 @@
+<map id="includes/Iplaceable.hpp" name="includes/Iplaceable.hpp">
+<area shape="rect" id="node1" title="Header for our Iplaceable Interface." alt="" coords="267,5,442,32"/>
+<area shape="rect" id="node2" href="$Box_8hpp.html" title="Header for our Box class." alt="" coords="5,155,139,181"/>
+<area shape="rect" id="node12" href="$Object_8hpp.html" title="Header for our Object classes." alt="" coords="223,80,374,107"/>
+<area shape="rect" id="node13" href="$Sun_8hpp.html" title="Header for our Sun class." alt="" coords="673,155,805,181"/>
+<area shape="rect" id="node14" href="$Iplaceable_8cpp.html" title="Source file for our IPlaceable interface." alt="" coords="449,80,588,107"/>
+<area shape="rect" id="node3" href="$Map_8hpp.html" title="Header for our Map class." alt="" coords="231,229,367,256"/>
+<area shape="rect" id="node8" href="$Box_8cpp.html" title="Source file for our Box class." alt="" coords="69,453,166,480"/>
+<area shape="rect" id="node4" href="$GameController_8hpp.html" title="Header for our Singleton GameController class." alt="" coords="336,304,547,331"/>
+<area shape="rect" id="node11" href="$Map_8cpp.html" title="Source file for our Map class." alt="" coords="161,304,261,331"/>
+<area shape="rect" id="node5" href="$Player_8hpp.html" title="Header for our Player class." alt="" coords="229,379,379,405"/>
+<area shape="rect" id="node10" href="$GameController_8cpp.html" title="Source Code for our GameController class." alt="" coords="410,379,585,405"/>
+<area shape="rect" id="node6" href="$Group_8hpp.html" title="Header for our Group class." alt="" coords="231,453,377,480"/>
+<area shape="rect" id="node9" href="$Object_8cpp.html" title="Source file for our Box class." alt="" coords="492,453,607,480"/>
+<area shape="rect" id="node7" href="$Group_8cpp.html" title="Source file for our Group class." alt="" coords="249,528,359,555"/>
+</map>

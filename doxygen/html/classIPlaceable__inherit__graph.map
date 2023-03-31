@@ -1,0 +1,8 @@
+<map id="IPlaceable" name="IPlaceable">
+<area shape="rect" id="node1" title="Interface for every object which can be place on the map." alt="" coords="157,5,247,32"/>
+<area shape="rect" id="node2" href="$classBanana.html" title="Class for the banana object." alt="" coords="5,80,76,107"/>
+<area shape="rect" id="node3" href="$classBox.html" title="The Box is an object factory." alt="" coords="100,80,147,107"/>
+<area shape="rect" id="node4" href="$classPlayer.html" title="Represent a player in our game." alt="" coords="171,80,233,107"/>
+<area shape="rect" id="node5" href="$classRedShell.html" title="Class for the red shell object." alt="" coords="257,80,336,107"/>
+<area shape="rect" id="node6" href="$classSun.html" title="The Sun is the objectif for the player." alt="" coords="360,80,407,107"/>
+</map>

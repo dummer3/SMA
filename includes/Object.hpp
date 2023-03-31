@@ -105,18 +105,11 @@ class RedShell : public IPlaceable, public Object {
   public:
     /**
      * 
-     * \brief direction of the shell
-     * 
-    */
-    Direction direction;
-
-    /**
-     * 
      * \brief constructor of the red shell
      * 
      */
     RedShell();
-    RedShell(Direction);
+    RedShell(int, int, Direction);
 
     /**
      * 
@@ -152,33 +145,30 @@ class RedShell : public IPlaceable, public Object {
  * 
 */
 class Banana : public IPlaceable, public Object {
-  public:
-    /**
-     * 
-     * \brief constructor of the banana
-     * 
-     */
-    Banana();
+public:
+  /**
+   *
+   * \brief constructor of the banana
+   *
+   */
+  Banana();
 
-    /**
-     * 
-     * \brief action when the banana is used
-     * 
-     */
-    void useEffect(Player*) override;
+  Banana(int, int);
 
-    /**
-     * 
-     * \brief action when the banana hit a Player
-     * 
-     */
-    void hitEffect(Player*) override;
+  /**
+   *
+   * \brief action when the banana is used
+   *
+   */
+  void useEffect(Player *) override;
+
+  /**
+   *
+   * \brief action when the banana hit a Player
+   *
+   */
+  void hitEffect(Player *) override;
 };
-
-
-
-
-
 
 // TODO: Banana action when on the map? when used by the player?
 

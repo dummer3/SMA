@@ -1,0 +1,5 @@
+<map id="RedShell" name="RedShell">
+<area shape="rect" id="node1" title="Class for the red shell object." alt="" coords="61,80,140,107"/>
+<area shape="rect" id="node2" href="$classIPlaceable.html" title="Interface for every object which can be place on the map." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node3" href="$classObject.html" title="Abstract class for all objects." alt="" coords="119,5,183,32"/>
+</map>

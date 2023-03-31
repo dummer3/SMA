@@ -9,7 +9,7 @@ class Box : public IPlaceable {
 
 private:
   Object *content;
-  int cooldown = -1;
+  int cooldown = 1;
 
 public:
   Box(int, int);
@@ -17,5 +17,6 @@ public:
   virtual void hitEffect(Player*);
   Object *GetContent();
   bool Manage();
+  void generateContent();
 };
 #endif /* BOX_H */

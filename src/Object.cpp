@@ -16,29 +16,47 @@ void Mushroom::useEffect(Player* player) {
 }
 
 void Mushroom::hitEffect(Player* player) {
-  
+    // does nothing
 }
 
 RedShell::RedShell() {
 
 }
 
-RedShell::RedShell(Direction direction) : direction(direction) {
+RedShell::RedShell(int y, int x, Direction direction) : IPlaceable(y, x, direction) {
 
 }
 
 void RedShell::useEffect(Player* player) {
-  std::cout << "RedShell action" << std::endl;
+  setX(player->getX());
+  setY(player->getY());
+  setDirection(player->getDirection());
+
+  switch (player->getDirection()) {
+  case Up:
+    setY(getY() - 1);
+    break;
+  case Down:
+    setY(getY() + 1);
+    break;
+  case Left:
+    setX(getX() - 1);
+    break;
+  case Right:
+    setX(getX() + 1);
+    break;
+  }
+
+  GameController::Get()->PlaceNewObject(this);
 }
 
 void RedShell::hitEffect(Player* player) {
   player->setBoostTimer(5);
   player->setSpeed(0);
-  delete this;
 }
 
 void RedShell::move() {
-  switch(direction) {
+  switch(getDirection()) {
     case Up:
       setY(getY() - 1);
       break;
@@ -54,16 +72,33 @@ void RedShell::move() {
   }
 }
 
-Banana::Banana() {
-  
-}
+Banana::Banana() {}
 
-void Banana::useEffect(Player* player) {
-  std::cout << "Banana action" << std::endl;
+Banana::Banana(int y, int x) : IPlaceable(y, x) {}
+
+void Banana::useEffect(Player *player) {
+  setX(player->getX());
+  setY(player->getY());
+
+  switch (player->getDirection()) {
+  case Up:
+    setY(getY() - 1);
+    break;
+  case Down:
+    setY(getY() + 1);
+    break;
+  case Left:
+    setX(getX() + 1);
+    break;
+  case Right:
+    setX(getX() - 1);
+    break;
+  }
+
+  GameController::Get()->PlaceNewObject(this);
 }
 
 void Banana::hitEffect(Player* player) {
   player->setBoostTimer(4);
   player->setSpeed(0);
-  delete this;
 }

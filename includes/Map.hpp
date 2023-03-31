@@ -304,13 +304,26 @@ public:
 
   /**
    *
-   * \brief Generate randomly a map with horizontal & vertical symetry
-   * \param None
-   * \return Null
+   * \brief Get the content at the [posX,posY] tile
+   * \param int posY: position on the y axis
+   * \param int posX: position on the x axis
+   * \return the content of the tile
    *
    **/
 
   int GetAtIndex(int posY, int posX) const;
+
+  /**
+   *
+   * \brief Set the content at the [posX,posY] tile
+   * \param int posY: position on the y axis
+   * \param int posX: position on the x axis
+   * \param int i: The integer to add
+   * \return Null
+   *
+   **/
+
+  void SetAtIndex(int posY, int posX, int i);
 
   /**
    *
