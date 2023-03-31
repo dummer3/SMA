@@ -4,4 +4,5 @@ build/*
 .idea
 .vscode
 *.el
+.DS_Store
 #*#
