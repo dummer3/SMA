@@ -430,18 +430,8 @@ void Map::PrintMap() const {
         colorBack = COLOR_BACK_WHITE;
       else if (tile >= 1000)
         colorBack = COLOR_BACK_YELLOW;
-      else if (tile >= 100)
+      else
         colorBack = COLOR_BACK_BLUE;
-      else if (tile > 10) {
-        std::string name =
-            typeid(GameController::Get()->objects[tile - 10]).name();
-        if (name == "Banana") {
-          color = COLOR_YELLOW + "BB";
-        } else {
-          color = COLOR_BLUE + "OO";
-        }
-      }
-      color = "  ";
 
       // choose the correct color
       Player *p = nullptr;
@@ -473,19 +463,24 @@ void Map::PrintMap() const {
           break;
         }
       }
-      // Loop on the objects
-      for (int i = 1; i < 80; i++) {
-        IPlaceable *o = GameController::Get()->objects[i];
-        if (o != nullptr && o->getY() == y && o->getX() == x) {
-          if (typeid(*o).name() == typeid(Banana).name()) {
-            color = COLOR_YELLOW + " B";
-          } else if (typeid(*o).name() == typeid(RedShell).name()) {
-            color = COLOR_RED + " R";
+      else {
+        color = "  ";
+        // maybe an object
+        // Loop on the objects
+        for (int i = 1; i < 80; i++) {
+          IPlaceable *o = GameController::Get()->objects[i];
+          if (o != nullptr && o->getY() == y && o->getX() == x) {
+            if (typeid(*o).name() == typeid(Banana).name()) {
+              color = COLOR_YELLOW + " B";
+            } else if (typeid(*o).name() == typeid(RedShell).name()) {
+              color = COLOR_RED + " R";
+            }
           }
         }
       }
+      
 
-      // Print it!
+      // Print the tile!
       std::cout << colorBack << color << COLOR_BACK_DEF << COLOR_DEF;
     }
     std::cout << std::endl;

@@ -115,10 +115,10 @@ void Banana::useEffect(Player *player) {
     setY(getY() + 1);
     break;
   case Left:
-    setX(getX() + 1);
+    setX(getX() - 1);
     break;
   case Right:
-    setX(getX() - 1);
+    setX(getX() + 1);
     break;
   }
 

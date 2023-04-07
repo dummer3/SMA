@@ -55,7 +55,8 @@ int Player::getBoostTimer()
 }
 
 int Player::makeDecision() {
-  if(this->_object != nullptr) {
+  if(this->_object != nullptr && GameController::Get()->IsThereACloseEnemyFrom(*this)) {
+    std::clog<<"Player "<<_location.first<<","<<_location.second<<" use object"<<std::endl;
     useObject();
     return 1;
   } else {

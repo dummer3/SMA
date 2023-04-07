@@ -208,6 +208,17 @@ public:
   void PlaceNewObject(IPlaceable *);
 
   /**
+   * 
+   * \fn bool IsThereACloseEnemyFrom(const Player&);
+   * \brief Check if there is an enemy close to the player given in parameter
+   * \param const Player& : The player to check
+   * \return bool : True if there is an enemy close to the player given in parameter
+   * 
+  */
+
+  bool IsThereACloseEnemyFrom(const Player&);
+
+  /**
    *
    * \fn static GameController *Get(int = 8);
    * \brief get the unique gameController or create one

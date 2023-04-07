@@ -379,6 +379,45 @@ void GameController::PlaceNewObject(IPlaceable *o) {
   }
 }
 
+bool GameController::IsThereACloseEnemyFrom(const Player& player) {
+  std::pair<int, int> currentEnemyLoc;
+  std::pair<int, int> playerLoc = player.getLocation();
+  bool found = false;
+  int p;
+  for (p = 1; p <= nbrPlayer && !found; p++) {
+    if (players[p]->getGroup() != player.getGroup()) {
+      currentEnemyLoc = players[p]->getLocation();
+      switch(player.getDirection()) {
+        case Left:
+          if (currentEnemyLoc.first == playerLoc.first &&
+              playerLoc.second - currentEnemyLoc.second <= 4 && playerLoc.second - currentEnemyLoc.second > 0) {
+                found = true;
+              }
+          break;
+        case Right:
+          if (currentEnemyLoc.first == playerLoc.first &&
+              currentEnemyLoc.second - playerLoc.second <= 4 && currentEnemyLoc.second - playerLoc.second > 0) {
+                found = true;
+              }
+          break;
+        case Up:
+          if (currentEnemyLoc.second == playerLoc.second &&
+              playerLoc.first - currentEnemyLoc.first <= 4 && playerLoc.first - currentEnemyLoc.first > 0) {
+                found = true;
+              }
+          break;
+        case Down:
+          if (currentEnemyLoc.second == playerLoc.second &&
+              currentEnemyLoc.first - playerLoc.first <= 4 && currentEnemyLoc.first - playerLoc.first > 0) {
+                found = true;
+              }
+          break;
+      }
+    }
+  }
+  return found;
+}
+
 /*****************************************************************************/
 /*                                                                           */
 /*                                Destructor                                 */
