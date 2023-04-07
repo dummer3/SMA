@@ -1,0 +1,63 @@
+  
+
+   \hypertarget{md_README_autotoc_md2}{}\doxysection{Simulation multi-\/agents}\label{md_README_autotoc_md2}
+\hypertarget{md_README_autotoc_md3}{}\doxysubsection{Question}\label{md_README_autotoc_md3}
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} 2 Actions pour banane, l\textquotesingle{}une lorsque posé, l\textquotesingle{}autre lorsque le joueur l\textquotesingle{}utilise
+\item \mbox{[} \mbox{]} mettre à jour la position du soleil sur la map si un joueur la possède ?
+\item \mbox{[} \mbox{]} Action nécessitant différent paramètre et type de retour ?
+\item \mbox{[} \mbox{]} Comment faire lorsque collision entre les joueurs.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md4}{}\doxysubsection{Implémentation}\label{md_README_autotoc_md4}
+\hypertarget{md_README_autotoc_md5}{}\doxysubsubsection{Map}\label{md_README_autotoc_md5}
+{\itshape Pour tester la map} g++ -\/Wall -\/Wextra -\/g -\/o exec \mbox{\hyperlink{Object_8cpp}{Object.\+cpp}} \mbox{\hyperlink{Iplaceable_8cpp}{Iplaceable.\+cpp}} \mbox{\hyperlink{Box_8cpp}{Box.\+cpp}} Sun.\+cpp \mbox{\hyperlink{Map_8cpp}{Map.\+cpp}} test.\+cpp
+
+
+\begin{DoxyItemize}
+\item \mbox{[}x\mbox{]} \mbox{\hyperlink{classMap}{Map}} présentation (entier)
+\item \mbox{[}x\mbox{]} Ajout \mbox{\hyperlink{classMap}{Map}} soleil
+\item \mbox{[}x\mbox{]} Ajout \mbox{\hyperlink{classMap}{Map}} \mbox{\hyperlink{classBox}{Box}}
+\item \mbox{[}x\mbox{]} Width et Height valide
+\item \mbox{[}x\mbox{]} S\textquotesingle{}assurer que le nbr de boxs et de suns soit cohérent avec la génération choisie (2 ou 4)
+\item \mbox{[} \mbox{]} S\textquotesingle{}assurer qu\textquotesingle{}il y a assez d\textquotesingle{}espace pour poser les boxs et suns
+\item \mbox{[} \mbox{]} Ajout \mbox{\hyperlink{classMap}{Map}} objet
+\item \mbox{[} \mbox{]} Ajout joueur sur \mbox{\hyperlink{classMap}{Map}}
+\item \mbox{[} \mbox{]} Déplacement Joueur sur \mbox{\hyperlink{classMap}{Map}}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md6}{}\doxysubsubsection{Objet et Joueur}\label{md_README_autotoc_md6}
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Contrôle soleil par les joueurs
+\item \mbox{[} \mbox{]} Bouger tous les objets dans diff fichier
+\item \mbox{[} \mbox{]} Game\+Manager
+\item \mbox{[} \mbox{]} Champignon
+\item \mbox{[} \mbox{]} Banane
+\item \mbox{[} \mbox{]} Carapace\+Rouge
+\item \mbox{[} \mbox{]} Action \mbox{\hyperlink{classBox}{Box}}
+\item \mbox{[} \mbox{]} Action Soleil
+\item \mbox{[} \mbox{]} Equipe
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md7}{}\doxysubsection{Documentation}\label{md_README_autotoc_md7}
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} \mbox{\hyperlink{classMap}{Map}} (75\%)
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md8}{}\doxysubsection{Optimisation}\label{md_README_autotoc_md8}
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Simplifier Générer\+Box/\+Sun en renvoyant la position pour Half et Quarter (au lieu de tout parcourir)
+\item \mbox{[} \mbox{]} Tiles en tableau dynamique (! penser au destructeur)
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md9}{}\doxysubsection{Allocation et free}\label{md_README_autotoc_md9}
+
+\begin{DoxyItemize}
+\item \mbox{[}x\mbox{]} Destructeur de \mbox{\hyperlink{classMap}{Map}}
+\item \mbox{[} \mbox{]} Autre ...
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md10}{}\doxysection{S\+T\+A\+R\+T R\+E\+A\+D\+ME}\label{md_README_autotoc_md10}
+\hypertarget{md_README_autotoc_md11}{}\doxysubsection{Build}\label{md_README_autotoc_md11}
+You need C\+Make version 3.\+19 or newer to build the program.
+
+After downloading the project, go to the {\ttfamily build} directory, run {\ttfamily cmake ..} and {\ttfamily cmake -\/-\/build .} to build the program and then {\ttfamily ./sma} to execute the program. \hypertarget{md_README_autotoc_md12}{}\doxysubsection{Background}\label{md_README_autotoc_md12}
+The project is to simulate the Mario Kart game in order to implement a multi-\/agent simulation program. \hypertarget{md_README_autotoc_md13}{}\doxysubsubsection{Class diagram}\label{md_README_autotoc_md13}
+\+\_\+\+\_\+\+\_\+\+T\+H\+IS IS A D\+I\+A\+G\+R\+AM OF C\+L\+A\+S\+S\+E\+S\+\_\+\+\_\+\+\_\+ \hypertarget{md_README_autotoc_md14}{}\doxysubsubsection{Use case diagram}\label{md_README_autotoc_md14}
+\+\_\+\+\_\+\+\_\+\+T\+H\+IS IS A D\+I\+A\+G\+R\+AM OF U\+SE C\+A\+S\+E\+\_\+\+\_\+\+\_\+ \hypertarget{md_README_autotoc_md15}{}\doxysubsection{Usage}\label{md_README_autotoc_md15}
+\+\_\+\+\_\+\+\_\+\+U\+S\+A\+G\+E\+\_\+\+\_\+\+\_\+\hypertarget{md_README_autotoc_md16}{}\doxysubsection{Maintainers}\label{md_README_autotoc_md16}
+@\+Matthias\+Benquet @dummer3 @\+Cest\+Mer\+Neil \hypertarget{md_README_autotoc_md17}{}\doxysubsection{Contributing}\label{md_README_autotoc_md17}
+\hypertarget{md_README_autotoc_md18}{}\doxysubsection{License}\label{md_README_autotoc_md18}
+\+\_\+\+\_\+\+\_\+\+Est-\/ce que nous avons besoin d\textquotesingle{}un license?\+\_\+\+\_\+\+\_\+ 

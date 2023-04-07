@@ -1,0 +1,194 @@
+\hypertarget{classPlayer}{}\doxysection{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+
+
+Represent a player in our game.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+hpp$>$}
+
+
+
+Inheritance diagram for Player\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classPlayer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Player\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classPlayer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayer_a4426290949ac4b29ef4f1618ea9bffbb}{Player}} (\mbox{\hyperlink{classGroup}{Group}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classPlayer}{Player}} with a initial \mbox{\hyperlink{classGroup}{Group}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classPlayer}{Player}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayer_ade1144be21348b26097cf77487f1bfe2}\label{classPlayer_ade1144be21348b26097cf77487f1bfe2}} 
+void {\bfseries set\+Sunshine} (int num\+Of\+Sunshine)
+\item 
+\mbox{\Hypertarget{classPlayer_aafcd75e181293fa1629abdfdc6e93466}\label{classPlayer_aafcd75e181293fa1629abdfdc6e93466}} 
+int {\bfseries get\+Sunshine} ()
+\item 
+\mbox{\Hypertarget{classPlayer_a139e5d1e7168c3df84b49d2adc427b68}\label{classPlayer_a139e5d1e7168c3df84b49d2adc427b68}} 
+void {\bfseries set\+Object} (\mbox{\hyperlink{classObject}{Object}} $\ast$objet)
+\item 
+\mbox{\Hypertarget{classPlayer_a1c1225babbcb0a4570559fd52d99c672}\label{classPlayer_a1c1225babbcb0a4570559fd52d99c672}} 
+\mbox{\hyperlink{classObject}{Object}} $\ast$ {\bfseries get\+Object} ()
+\item 
+\mbox{\Hypertarget{classPlayer_afe708570bc166a91649478dd22108e7a}\label{classPlayer_afe708570bc166a91649478dd22108e7a}} 
+void {\bfseries set\+Speed} (int speed)
+\item 
+\mbox{\Hypertarget{classPlayer_a5755be9818f6f911d9494e4948d8c483}\label{classPlayer_a5755be9818f6f911d9494e4948d8c483}} 
+int {\bfseries get\+Speed} ()
+\item 
+\mbox{\Hypertarget{classPlayer_a6f8e66140116856a580971dfb3f21d0e}\label{classPlayer_a6f8e66140116856a580971dfb3f21d0e}} 
+void {\bfseries set\+Boost\+Timer} (int boost\+\_\+timer)
+\item 
+\mbox{\Hypertarget{classPlayer_a9e4bf32a20f10bc1786d1ac79f890e35}\label{classPlayer_a9e4bf32a20f10bc1786d1ac79f890e35}} 
+int {\bfseries get\+Boost\+Timer} ()
+\item 
+\mbox{\Hypertarget{classPlayer_ab761a1ddba353a619403be9af249b835}\label{classPlayer_ab761a1ddba353a619403be9af249b835}} 
+int {\bfseries getY} () const
+\item 
+\mbox{\Hypertarget{classPlayer_ae9bcae10b1841b186b2ac0a5b07dd6e1}\label{classPlayer_ae9bcae10b1841b186b2ac0a5b07dd6e1}} 
+int {\bfseries getX} () const
+\item 
+\mbox{\Hypertarget{classPlayer_a27ead100c7d962c208e740c60a7fa6de}\label{classPlayer_a27ead100c7d962c208e740c60a7fa6de}} 
+void {\bfseries set\+Location} (int, int)
+\item 
+\mbox{\Hypertarget{classPlayer_ada39e7e590f24237e2e95c1772b27da4}\label{classPlayer_ada39e7e590f24237e2e95c1772b27da4}} 
+void {\bfseries set\+Location} (std\+::pair$<$ int, int $>$)
+\item 
+\mbox{\Hypertarget{classPlayer_ae9dc45ae0d42c1b4f61b51dcd7bc24d6}\label{classPlayer_ae9dc45ae0d42c1b4f61b51dcd7bc24d6}} 
+std\+::pair$<$ int, int $>$ {\bfseries get\+Location} () const
+\item 
+\mbox{\Hypertarget{classPlayer_a01a96325d24749f9216b87caf3dfc54d}\label{classPlayer_a01a96325d24749f9216b87caf3dfc54d}} 
+const \mbox{\hyperlink{classGroup}{Group}} $\ast$ {\bfseries get\+Group} () const
+\item 
+void \mbox{\hyperlink{classPlayer_a704a0ca369c42e257bd58b1e8fc6e91f}{se\+Deplacer}} ()
+\begin{DoxyCompactList}\small\item\em The player choose where he want to move, and set is location. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a452e8c19c1a6ea73c2d5b792be4f9973}{use\+Object}} ()
+\begin{DoxyCompactList}\small\item\em The player use his object, consume it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlayer_a88453d532260c4ae7453e28fd2d2b026}{make\+Decision}} ()
+\begin{DoxyCompactList}\small\item\em action a player make during a round \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classPlayer_a2697825715974a353728f0d4d5658112}{Group}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represent a player in our game. 
+
+Implement \mbox{\hyperlink{classIPlaceable}{I\+Placeable}} interface 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlayer_a4426290949ac4b29ef4f1618ea9bffbb}\label{classPlayer_a4426290949ac4b29ef4f1618ea9bffbb}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGroup}{Group}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classPlayer}{Player}} with a initial \mbox{\hyperlink{classGroup}{Group}}. 
+
+\begin{DoxyReturn}{Returns}
+An new object \mbox{\hyperlink{classPlayer}{Player}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}\label{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}} 
+\index{Player@{Player}!````~Player@{$\sim$Player}}
+\index{````~Player@{$\sim$Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{$\sim$Player()}{~Player()}}
+{\footnotesize\ttfamily Player\+::$\sim$\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{classPlayer}{Player}}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer_a88453d532260c4ae7453e28fd2d2b026}\label{classPlayer_a88453d532260c4ae7453e28fd2d2b026}} 
+\index{Player@{Player}!makeDecision@{makeDecision}}
+\index{makeDecision@{makeDecision}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{makeDecision()}{makeDecision()}}
+{\footnotesize\ttfamily int Player\+::make\+Decision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+action a player make during a round 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int, 1 if he uses a object, 2 if he moves 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a704a0ca369c42e257bd58b1e8fc6e91f}\label{classPlayer_a704a0ca369c42e257bd58b1e8fc6e91f}} 
+\index{Player@{Player}!seDeplacer@{seDeplacer}}
+\index{seDeplacer@{seDeplacer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{seDeplacer()}{seDeplacer()}}
+{\footnotesize\ttfamily void Player\+::se\+Deplacer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The player choose where he want to move, and set is location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a452e8c19c1a6ea73c2d5b792be4f9973}\label{classPlayer_a452e8c19c1a6ea73c2d5b792be4f9973}} 
+\index{Player@{Player}!useObject@{useObject}}
+\index{useObject@{useObject}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{useObject()}{useObject()}}
+{\footnotesize\ttfamily void Player\+::use\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The player use his object, consume it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classPlayer_a2697825715974a353728f0d4d5658112}\label{classPlayer_a2697825715974a353728f0d4d5658112}} 
+\index{Player@{Player}!Group@{Group}}
+\index{Group@{Group}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Group}{Group}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classGroup}{Group}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+In our situation, every player should be created by a group, so every time create a group, take the name of group to the player. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{Player_8hpp}{Player.\+hpp}}\item 
+src/Player.\+cpp\end{DoxyCompactItemize}

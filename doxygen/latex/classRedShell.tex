@@ -1,0 +1,118 @@
+\hypertarget{classRedShell}{}\doxysection{Red\+Shell Class Reference}
+\label{classRedShell}\index{RedShell@{RedShell}}
+
+
+Class for the red shell object.  
+
+
+
+
+{\ttfamily \#include \char`\"{}includes/\+Object.\+hpp\char`\"{}}
+
+
+
+Inheritance diagram for Red\+Shell\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classRedShell__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Red\+Shell\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classRedShell__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRedShell_a8dacc31bb0ec402c8743c3d24f4c7f43}{Red\+Shell}} ()
+\begin{DoxyCompactList}\small\item\em constructor of the red shell \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRedShell_a19af7f477dc61c4c7103a2cb99d47226}\label{classRedShell_a19af7f477dc61c4c7103a2cb99d47226}} 
+{\bfseries Red\+Shell} (int, int, Direction)
+\item 
+void \mbox{\hyperlink{classRedShell_aacca90121859ebd450e601ce239af3d3}{use\+Effect}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$) override
+\begin{DoxyCompactList}\small\item\em action when the red shell is used \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRedShell_afed9f95f4256174b095e8b860ea92d06}{hit\+Effect}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$) override
+\begin{DoxyCompactList}\small\item\em action when the red shell hit a \mbox{\hyperlink{classPlayer}{Player}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRedShell_a5fc64263500a215ca9e2202eaa5d96e2}{move}} ()
+\begin{DoxyCompactList}\small\item\em make the shell move \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the red shell object. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRedShell_a8dacc31bb0ec402c8743c3d24f4c7f43}\label{classRedShell_a8dacc31bb0ec402c8743c3d24f4c7f43}} 
+\index{RedShell@{RedShell}!RedShell@{RedShell}}
+\index{RedShell@{RedShell}!RedShell@{RedShell}}
+\doxysubsubsection{\texorpdfstring{RedShell()}{RedShell()}}
+{\footnotesize\ttfamily Red\+Shell\+::\+Red\+Shell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+constructor of the red shell 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRedShell_afed9f95f4256174b095e8b860ea92d06}\label{classRedShell_afed9f95f4256174b095e8b860ea92d06}} 
+\index{RedShell@{RedShell}!hitEffect@{hitEffect}}
+\index{hitEffect@{hitEffect}!RedShell@{RedShell}}
+\doxysubsubsection{\texorpdfstring{hitEffect()}{hitEffect()}}
+{\footnotesize\ttfamily void Red\+Shell\+::hit\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+action when the red shell hit a \mbox{\hyperlink{classPlayer}{Player}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classPlayer}{Player}}} & $\ast$\+: The player who hit it \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classObject_a991340b9f55984d1cfbfac7baedfff2c}{Object}}.
+
+\mbox{\Hypertarget{classRedShell_a5fc64263500a215ca9e2202eaa5d96e2}\label{classRedShell_a5fc64263500a215ca9e2202eaa5d96e2}} 
+\index{RedShell@{RedShell}!move@{move}}
+\index{move@{move}!RedShell@{RedShell}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Red\+Shell\+::move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+make the shell move 
+
+\mbox{\Hypertarget{classRedShell_aacca90121859ebd450e601ce239af3d3}\label{classRedShell_aacca90121859ebd450e601ce239af3d3}} 
+\index{RedShell@{RedShell}!useEffect@{useEffect}}
+\index{useEffect@{useEffect}!RedShell@{RedShell}}
+\doxysubsubsection{\texorpdfstring{useEffect()}{useEffect()}}
+{\footnotesize\ttfamily void Red\+Shell\+::use\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+action when the red shell is used 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classPlayer}{Player}}} & $\ast$\+: The player who use it \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classObject_aa981abca824f880627ded31b516df1b7}{Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{Object_8hpp}{Object.\+hpp}}\item 
+src/\mbox{\hyperlink{Object_8cpp}{Object.\+cpp}}\end{DoxyCompactItemize}

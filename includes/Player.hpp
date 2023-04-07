@@ -1,5 +1,20 @@
+/**
+ *
+ * \file Player.hpp
+ * \brief Header for our Player class
+ * \author XIE Ao
+ * \date 01/02/2023
+ *
+ **/
+
 #ifndef _Player
 #define _Player
+
+/*****************************************************************************/
+/*                                                                           */
+/*                                Include                                    */
+/*                                                                           */
+/*****************************************************************************/
 
 #include <iostream>
 
@@ -7,10 +22,26 @@
 #include "Group.hpp"
 #include "Object.hpp"
 
+/*****************************************************************************/
+/*                                                                           */
+/*                                Class                                      */
+/*                                                                           */
+/*****************************************************************************/
+
 class Group;
+
+/**
+ *
+ * \class Player
+ * \brief Represent a player in our game
+ *
+ * Implement IPlaceable interface
+ *
+ **/
 
 class Player : public IPlaceable {
 
+  /******************************* Attribute *********************************/
   std::pair<int, int> _location;
   int _sunshine;
   // Unit: TILE/TICK
@@ -27,8 +58,29 @@ class Player : public IPlaceable {
   friend class Group; // Player can only be created by Group.
 
 public:
+  /****************************** Public Method ******************************/
+  /****************************** Constructor ********************************/
+
+  /**
+   *
+   * \fn Player(Group* g)
+   * \brief Constructor for Player with a initial Group
+   * \return An new object Player
+   *
+   **/
+
   Player(Group *g);
+
+  /******************************* Destructor ********************************/
+
+  /**
+   *
+   * \brief Destructor for Player
+   *
+   **/
   ~Player();
+
+  /********************************** Other **********************************/
 
   void setSunshine(int numOfSunshine);
   int getSunshine();
@@ -39,17 +91,43 @@ public:
   void setBoostTimer(int boost_timer);
   int getBoostTimer();
 
-  int getY() const {return _location.first;}
-  int getX() const {return _location.second;}
-
-  // void agir(); // il va agir,
-  void seDeplacer();
-  void useObject();
-  int makeDecision();
+  int getY() const { return _location.first; }
+  int getX() const { return _location.second; }
   void setLocation(int, int);
   void setLocation(std::pair<int, int>);
   std::pair<int, int> getLocation() const;
   const Group *getGroup() const;
+
+  /**
+   *
+   * \fn void seDeplacer();
+   * \brief The player choose where he want to move, and set is location
+   * \param None
+   * \return Null
+   *
+   **/
+  void seDeplacer();
+
+  /**
+   *
+   * \fn void useObject();
+   * \brief The player use his object, consume it
+   * \param None
+   * \return Null
+   *
+   **/
+  void useObject();
+
+  /**
+   *
+   * \fn int makeDecision()
+   * \brief action a player make during a round
+   * \param None
+   * \return int, 1 if he uses a object, 2 if he moves
+   *
+   **/
+
+  int makeDecision();
 };
 
 #endif

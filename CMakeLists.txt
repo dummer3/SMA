@@ -8,7 +8,8 @@ project(sma VERSION 1.0)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_compile_options(-g)
+add_compile_options(-pg)
+add_definitions(-pg)
 
 # Add the sources
 file(GLOB_RECURSE LIB_SOURCES "src/*.cpp")

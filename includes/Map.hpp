@@ -71,6 +71,13 @@ const int MAX_HEIGHT = 100;
 class GameController;
 class Group;
 
+/**
+ *
+ * \class Map
+ * \brief The map for a game
+ *
+ **/
+
 class Map {
 
   friend GameController;
@@ -84,6 +91,7 @@ private:
   /* Tiles meaning:
    * -1 : Obstacle
    * 0 : Empty tiles
+   * xx : Object
    * 1xx : Box (with index xx in the boxs table)
    * 10xx: Sun (with index xx in the suns table)
    */
@@ -101,7 +109,7 @@ private:
    * \return Null
    *
    **/
-  void InitBS();
+  void InitB();
 
   /**
    *
@@ -109,7 +117,7 @@ private:
    * \return Null
    *
    **/
-  void DeleteBS();
+  void DeleteB();
 
   /**
    *
@@ -234,7 +242,7 @@ public:
 
   /**
    *
-   * \brief Simplest Constructor for GameController
+   * \brief Simplest Constructor for Map
    * \param int = 12: The height of the map (by default 12)
    * \param int = 24: The width of the map (by default 24)
    * \return An new object GameController
@@ -247,7 +255,7 @@ public:
 
   /**
    *
-   * \brief Constructor for GameController with nbrBox and nbrSuns
+   * \brief Constructor for Map with nbrBox and nbrSuns
    * \param int: The height of the map (by default 12)
    * \param int: The width of the map (by default 24)
    * \param int: The number of box (by default 4)
@@ -262,10 +270,9 @@ public:
 
   /**
    *
-   * \brief Destructor for GameController
-   * \return An new object GameController
+   * \brief Destructor for Map
    *
-   * delete boxs and suns
+   * delete boxs
    *
    **/
   ~Map();

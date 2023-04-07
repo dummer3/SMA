@@ -1,0 +1,165 @@
+\hypertarget{classBox}{}\doxysection{Box Class Reference}
+\label{classBox}\index{Box@{Box}}
+
+
+The \mbox{\hyperlink{classBox}{Box}} is an object factory.  
+
+
+
+
+{\ttfamily \#include $<$Box.\+hpp$>$}
+
+
+
+Inheritance diagram for Box\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classBox__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Box\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classBox__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBox_a18ae98a5a13f5a761683306ba7140bba}{Box}} (int, int)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classBox}{Box}}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classBox_a6a5e09398e85d602a046b429062fb9c2}{$\sim$\+Box}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classBox}{Box}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBox_a15cbb757950c49ad44a66d93bd1ce0ca}{hit\+Effect}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Give a object to the player who hit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classObject}{Object}} $\ast$ \mbox{\hyperlink{classBox_a7b92b28f5982ef9cd91f572de87a0b58}{Get\+Content}} ()
+\begin{DoxyCompactList}\small\item\em Give the object store in the box, start the cooldown. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBox_a3dd3841ad147b649ecd99c5656a13d8c}{Manage}} ()
+\begin{DoxyCompactList}\small\item\em Return true if the box just create an object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBox_afe501d2b25666da14af72a9213733461}{generate\+Content}} ()
+\begin{DoxyCompactList}\small\item\em create a new \mbox{\hyperlink{classObject}{Object}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classBox}{Box}} is an object factory. 
+
+Implement the \mbox{\hyperlink{classIPlaceable}{I\+Placeable}} interface 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBox_a18ae98a5a13f5a761683306ba7140bba}\label{classBox_a18ae98a5a13f5a761683306ba7140bba}} 
+\index{Box@{Box}!Box@{Box}}
+\index{Box@{Box}!Box@{Box}}
+\doxysubsubsection{\texorpdfstring{Box()}{Box()}}
+{\footnotesize\ttfamily Box\+::\+Box (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classBox}{Box}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & The value for the y axis \\
+\hline
+{\em int} & The value for the x axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An new object \mbox{\hyperlink{classBox}{Box}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBox_a6a5e09398e85d602a046b429062fb9c2}\label{classBox_a6a5e09398e85d602a046b429062fb9c2}} 
+\index{Box@{Box}!````~Box@{$\sim$Box}}
+\index{````~Box@{$\sim$Box}!Box@{Box}}
+\doxysubsubsection{\texorpdfstring{$\sim$Box()}{~Box()}}
+{\footnotesize\ttfamily Box\+::$\sim$\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor for \mbox{\hyperlink{classBox}{Box}}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBox_afe501d2b25666da14af72a9213733461}\label{classBox_afe501d2b25666da14af72a9213733461}} 
+\index{Box@{Box}!generateContent@{generateContent}}
+\index{generateContent@{generateContent}!Box@{Box}}
+\doxysubsubsection{\texorpdfstring{generateContent()}{generateContent()}}
+{\footnotesize\ttfamily void Box\+::generate\+Content (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+create a new \mbox{\hyperlink{classObject}{Object}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBox_a7b92b28f5982ef9cd91f572de87a0b58}\label{classBox_a7b92b28f5982ef9cd91f572de87a0b58}} 
+\index{Box@{Box}!GetContent@{GetContent}}
+\index{GetContent@{GetContent}!Box@{Box}}
+\doxysubsubsection{\texorpdfstring{GetContent()}{GetContent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classObject}{Object}} $\ast$ Box\+::\+Get\+Content (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Give the object store in the box, start the cooldown. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Object$\ast$\+: The object inside the box 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBox_a15cbb757950c49ad44a66d93bd1ce0ca}\label{classBox_a15cbb757950c49ad44a66d93bd1ce0ca}} 
+\index{Box@{Box}!hitEffect@{hitEffect}}
+\index{hitEffect@{hitEffect}!Box@{Box}}
+\doxysubsubsection{\texorpdfstring{hitEffect()}{hitEffect()}}
+{\footnotesize\ttfamily void Box\+::hit\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Give a object to the player who hit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Player$\ast$} & The player who hit the box \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBox_a3dd3841ad147b649ecd99c5656a13d8c}\label{classBox_a3dd3841ad147b649ecd99c5656a13d8c}} 
+\index{Box@{Box}!Manage@{Manage}}
+\index{Manage@{Manage}!Box@{Box}}
+\doxysubsubsection{\texorpdfstring{Manage()}{Manage()}}
+{\footnotesize\ttfamily bool Box\+::\+Manage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return true if the box just create an object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+: if an object is create 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{Box_8hpp}{Box.\+hpp}}\item 
+src/\mbox{\hyperlink{Box_8cpp}{Box.\+cpp}}\end{DoxyCompactItemize}

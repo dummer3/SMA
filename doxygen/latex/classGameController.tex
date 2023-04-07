@@ -1,0 +1,298 @@
+\hypertarget{classGameController}{}\doxysection{Game\+Controller Class Reference}
+\label{classGameController}\index{GameController@{GameController}}
+
+
+The controller to manage a game.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Controller.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameController_afca328beedbf4cadb26ba0ab8e8e7def}\label{classGameController_afca328beedbf4cadb26ba0ab8e8e7def}} 
+{\bfseries Game\+Controller} (const \mbox{\hyperlink{classGameController}{Game\+Controller}} \&)=delete
+\item 
+\mbox{\Hypertarget{classGameController_ad5ca858d92e6729d4f56c2eeb7249c24}\label{classGameController_ad5ca858d92e6729d4f56c2eeb7249c24}} 
+void {\bfseries operator=} (const \mbox{\hyperlink{classGameController}{Game\+Controller}} \&)=delete
+\item 
+void \mbox{\hyperlink{classGameController_aa839866dd62860765cba8206a67cd558}{Create\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Create a Game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameController_a69f794ca28618a78dff73ec0c3f0f844}{Init\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Init a Game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameController_a2353356878c5217045ad632660542833}{New\+Round}} ()
+\begin{DoxyCompactList}\small\item\em Play a round in the present game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameController_a519338c20087c6f767fe40e7367a3068}{Manage\+Players}} ()
+\begin{DoxyCompactList}\small\item\em Manage the player in the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameController_aa59264e12fc7e92878976c7446c71730}{Manage\+Boxes}} ()
+\begin{DoxyCompactList}\small\item\em Manage the boxes in the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameController_a3999981e2dff071cb0e03c5756723715}{Manage\+Objects}} ()
+\begin{DoxyCompactList}\small\item\em Manage the objects in the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGameController_a9e4f830217f3735bfc9d6ad7aa5ad8a1}{Evaluate\+Tile}} (int, int)
+\begin{DoxyCompactList}\small\item\em return a \char`\"{}score\char`\"{} for a certain tile \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{classGameController_a183b2ae00d016d451582b164e7d27bd0}{A}} (std\+::pair$<$ int, int $>$ start, std\+::pair$<$ int, int $>$ end)
+\item 
+void \mbox{\hyperlink{classGameController_ad8e3d7d572b34c4e37c357f6d912cf01}{lose\+Sun}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function to call when a player lose a sun. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{classGameController_a0961d93fcd2b260029ef1eaadc2d1bc4}{find\+Free\+Tile}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Find a free Tile close to a \mbox{\hyperlink{classPlayer}{Player}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGameController_a2c705456aef4e9ccd34f7f6cfb5f599e}{Player\+Here}} (std\+::pair$<$ int, int $>$)
+\begin{DoxyCompactList}\small\item\em Return if a player is on this position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameController_a7e75f6f928862c4f40adad9e25527404}\label{classGameController_a7e75f6f928862c4f40adad9e25527404}} 
+void {\bfseries Place\+New\+Object} (\mbox{\hyperlink{classIPlaceable}{I\+Placeable}} $\ast$)
+\item 
+void \mbox{\hyperlink{classGameController_aa3c63ca83ed3b4fd6fbef698480fda7e}{Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Replace the destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classGameController}{Game\+Controller}} $\ast$ \mbox{\hyperlink{classGameController_aa052b81785a1bdef8570ec75851b5b4c}{Get}} (int=8)
+\begin{DoxyCompactList}\small\item\em get the unique game\+Controller or create one \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The controller to manage a game. 
+
+Follow the singleton pattern 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameController_a183b2ae00d016d451582b164e7d27bd0}\label{classGameController_a183b2ae00d016d451582b164e7d27bd0}} 
+\index{GameController@{GameController}!A@{A}}
+\index{A@{A}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{A()}{A()}}
+{\footnotesize\ttfamily std\+::pair$<$ int, int $>$ Game\+Controller\+::A (\begin{DoxyParamCaption}\item[{std\+::pair$<$ int, int $>$}]{start,  }\item[{std\+::pair$<$ int, int $>$}]{end }\end{DoxyParamCaption})}
+
+std\+::pair$<$int, int$>$ start \+: the tile where to start
+\begin{DoxyParams}{Parameters}
+{\em std\+::pair$<$int,int$>$} & end\+: the objectif to approach \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the next tiles to approach the end. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_aa839866dd62860765cba8206a67cd558}\label{classGameController_aa839866dd62860765cba8206a67cd558}} 
+\index{GameController@{GameController}!CreateGame@{CreateGame}}
+\index{CreateGame@{CreateGame}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{CreateGame()}{CreateGame()}}
+{\footnotesize\ttfamily void Game\+Controller\+::\+Create\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a Game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_aa3c63ca83ed3b4fd6fbef698480fda7e}\label{classGameController_aa3c63ca83ed3b4fd6fbef698480fda7e}} 
+\index{GameController@{GameController}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void Game\+Controller\+::\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Replace the destructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_a9e4f830217f3735bfc9d6ad7aa5ad8a1}\label{classGameController_a9e4f830217f3735bfc9d6ad7aa5ad8a1}} 
+\index{GameController@{GameController}!EvaluateTile@{EvaluateTile}}
+\index{EvaluateTile@{EvaluateTile}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{EvaluateTile()}{EvaluateTile()}}
+{\footnotesize\ttfamily int Game\+Controller\+::\+Evaluate\+Tile (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+return a \char`\"{}score\char`\"{} for a certain tile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & the y axis of the tile to analyse \\
+\hline
+{\em int} & the x axis of the tile to analyse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the score of this tile 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_a0961d93fcd2b260029ef1eaadc2d1bc4}\label{classGameController_a0961d93fcd2b260029ef1eaadc2d1bc4}} 
+\index{GameController@{GameController}!findFreeTile@{findFreeTile}}
+\index{findFreeTile@{findFreeTile}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{findFreeTile()}{findFreeTile()}}
+{\footnotesize\ttfamily std\+::pair$<$ int, int $>$ Game\+Controller\+::find\+Free\+Tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+Find a free Tile close to a \mbox{\hyperlink{classPlayer}{Player}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classPlayer}{Player}}} & $\ast$ \+: The player of reference \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$int,int$>$\+: the position of the free tile 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_aa052b81785a1bdef8570ec75851b5b4c}\label{classGameController_aa052b81785a1bdef8570ec75851b5b4c}} 
+\index{GameController@{GameController}!Get@{Get}}
+\index{Get@{Get}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGameController}{Game\+Controller}} $\ast$ Game\+Controller\+::\+Get (\begin{DoxyParamCaption}\item[{int}]{n = {\ttfamily 8} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+get the unique game\+Controller or create one 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & the number of player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the unique \mbox{\hyperlink{classGameController}{Game\+Controller}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_a69f794ca28618a78dff73ec0c3f0f844}\label{classGameController_a69f794ca28618a78dff73ec0c3f0f844}} 
+\index{GameController@{GameController}!InitGame@{InitGame}}
+\index{InitGame@{InitGame}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{InitGame()}{InitGame()}}
+{\footnotesize\ttfamily void Game\+Controller\+::\+Init\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Init a Game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_ad8e3d7d572b34c4e37c357f6d912cf01}\label{classGameController_ad8e3d7d572b34c4e37c357f6d912cf01}} 
+\index{GameController@{GameController}!loseSun@{loseSun}}
+\index{loseSun@{loseSun}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{loseSun()}{loseSun()}}
+{\footnotesize\ttfamily void Game\+Controller\+::lose\+Sun (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+Function to call when a player lose a sun. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classPlayer}{Player}}} & $\ast$ \+: Which player must lose the sun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_aa59264e12fc7e92878976c7446c71730}\label{classGameController_aa59264e12fc7e92878976c7446c71730}} 
+\index{GameController@{GameController}!ManageBoxes@{ManageBoxes}}
+\index{ManageBoxes@{ManageBoxes}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{ManageBoxes()}{ManageBoxes()}}
+{\footnotesize\ttfamily void Game\+Controller\+::\+Manage\+Boxes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Manage the boxes in the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_a3999981e2dff071cb0e03c5756723715}\label{classGameController_a3999981e2dff071cb0e03c5756723715}} 
+\index{GameController@{GameController}!ManageObjects@{ManageObjects}}
+\index{ManageObjects@{ManageObjects}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{ManageObjects()}{ManageObjects()}}
+{\footnotesize\ttfamily void Game\+Controller\+::\+Manage\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Manage the objects in the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_a519338c20087c6f767fe40e7367a3068}\label{classGameController_a519338c20087c6f767fe40e7367a3068}} 
+\index{GameController@{GameController}!ManagePlayers@{ManagePlayers}}
+\index{ManagePlayers@{ManagePlayers}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{ManagePlayers()}{ManagePlayers()}}
+{\footnotesize\ttfamily void Game\+Controller\+::\+Manage\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Manage the player in the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_a2353356878c5217045ad632660542833}\label{classGameController_a2353356878c5217045ad632660542833}} 
+\index{GameController@{GameController}!NewRound@{NewRound}}
+\index{NewRound@{NewRound}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{NewRound()}{NewRound()}}
+{\footnotesize\ttfamily void Game\+Controller\+::\+New\+Round (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Play a round in the present game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameController_a2c705456aef4e9ccd34f7f6cfb5f599e}\label{classGameController_a2c705456aef4e9ccd34f7f6cfb5f599e}} 
+\index{GameController@{GameController}!PlayerHere@{PlayerHere}}
+\index{PlayerHere@{PlayerHere}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{PlayerHere()}{PlayerHere()}}
+{\footnotesize\ttfamily bool Game\+Controller\+::\+Player\+Here (\begin{DoxyParamCaption}\item[{std\+::pair$<$ int, int $>$}]{loc }\end{DoxyParamCaption})}
+
+
+
+Return if a player is on this position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::pair$<$int,int$>$} & the position to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+: if a player is here or not 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{GameController_8hpp}{Game\+Controller.\+hpp}}\item 
+src/\mbox{\hyperlink{GameController_8cpp}{Game\+Controller.\+cpp}}\end{DoxyCompactItemize}

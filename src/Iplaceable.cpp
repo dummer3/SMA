@@ -1,6 +1,17 @@
+/**
+ *
+ * \file Iplaceable.cpp
+ * \brief Source file for our IPlaceable interface
+ * \author Cliquot Théo
+ * \date 21/01/2023
+ *
+ * For method description, see the header
+ *
+ **/
+
 #include "../includes/Iplaceable.hpp"
 
-IPlaceable::IPlaceable() {};	
+IPlaceable::IPlaceable(){};
 
 IPlaceable::IPlaceable(int y, int x, Direction direction) : y(y), x(x), direction(direction) {}
 
@@ -16,4 +27,6 @@ void IPlaceable::setY(int y) { this->y = y; }
 
 Direction IPlaceable::getDirection() const { return direction; }
 
-void IPlaceable::setDirection(Direction direction) { this->direction = direction; }
+void IPlaceable::setDirection(Direction direction) {
+  this->direction = direction;
+}

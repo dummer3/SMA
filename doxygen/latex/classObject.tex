@@ -1,0 +1,92 @@
+\hypertarget{classObject}{}\doxysection{Object Class Reference}
+\label{classObject}\index{Object@{Object}}
+
+
+Abstract class for all objects.  
+
+
+
+
+{\ttfamily \#include \char`\"{}includes/\+Object.\+hpp\char`\"{}}
+
+
+
+Inheritance diagram for Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{classObject__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classObject_aa981abca824f880627ded31b516df1b7}{use\+Effect}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$)=0
+\begin{DoxyCompactList}\small\item\em action when the object is used \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classObject_a991340b9f55984d1cfbfac7baedfff2c}{hit\+Effect}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$)=0
+\begin{DoxyCompactList}\small\item\em action when the object is hit \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classObject_ae8f5483f459e46687bd01e6f9977afd3}{$\sim$\+Object}} ()
+\begin{DoxyCompactList}\small\item\em destructor of the object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class for all objects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classObject_ae8f5483f459e46687bd01e6f9977afd3}\label{classObject_ae8f5483f459e46687bd01e6f9977afd3}} 
+\index{Object@{Object}!````~Object@{$\sim$Object}}
+\index{````~Object@{$\sim$Object}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{$\sim$Object()}{~Object()}}
+{\footnotesize\ttfamily Object\+::$\sim$\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+destructor of the object 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classObject_a991340b9f55984d1cfbfac7baedfff2c}\label{classObject_a991340b9f55984d1cfbfac7baedfff2c}} 
+\index{Object@{Object}!hitEffect@{hitEffect}}
+\index{hitEffect@{hitEffect}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{hitEffect()}{hitEffect()}}
+{\footnotesize\ttfamily virtual void Object\+::hit\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+action when the object is hit 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classPlayer}{Player}}} & $\ast$\+: The player who hit it \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classBanana_a349c374f321e088e90d626bae9eb1179}{Banana}}, \mbox{\hyperlink{classRedShell_afed9f95f4256174b095e8b860ea92d06}{Red\+Shell}}, and \mbox{\hyperlink{classMushroom_a0dffa9b4c037d0eda847c3e14474bfc0}{Mushroom}}.
+
+\mbox{\Hypertarget{classObject_aa981abca824f880627ded31b516df1b7}\label{classObject_aa981abca824f880627ded31b516df1b7}} 
+\index{Object@{Object}!useEffect@{useEffect}}
+\index{useEffect@{useEffect}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{useEffect()}{useEffect()}}
+{\footnotesize\ttfamily virtual void Object\+::use\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+action when the object is used 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classPlayer}{Player}}} & $\ast$\+: The player who use it \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classBanana_a2d955a5de1736cfdc860ef82ce9c0c11}{Banana}}, \mbox{\hyperlink{classRedShell_aacca90121859ebd450e601ce239af3d3}{Red\+Shell}}, and \mbox{\hyperlink{classMushroom_af22581b32aed819dff52e211474cb4cc}{Mushroom}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{Object_8hpp}{Object.\+hpp}}\item 
+src/\mbox{\hyperlink{Object_8cpp}{Object.\+cpp}}\end{DoxyCompactItemize}

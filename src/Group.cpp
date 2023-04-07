@@ -1,6 +1,23 @@
+/**
+ *
+ * \file Group.cpp
+ * \brief Source file for our Group class
+ * \author XIE Ao
+ * \date 02/01/2023
+ *
+ * For method description, see the header
+ *
+ **/
+
 #include "../includes/Group.hpp"
 
-Group::Group(){}
+/*****************************************************************************/
+/*                                                                           */
+/*                               Constructor                                 */
+/*                                                                           */
+/*****************************************************************************/
+
+Group::Group() {}
 Group::Group(int id) : Group(id, "default") {}
 
 // With overwrite, we can create a team with his name.
@@ -10,9 +27,18 @@ Group::Group(int id, std::string name) {
   this->_num_player = 0;
 }
 
+/*****************************************************************************/
+/*                                                                           */
+/*                                Destructor                                 */
+/*                                                                           */
+/*****************************************************************************/
+
+Group::~Group() {
+  // Player delete individually
+}
+
 void Group::AddPlayer(Player *p) {
   players[_num_player] = p;
-  std::cout << "groupe " << _id << ":" << _num_player << std::endl;
   _num_player++;
 }
 

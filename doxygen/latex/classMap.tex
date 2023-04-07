@@ -1,0 +1,213 @@
+\hypertarget{classMap}{}\doxysection{Map Class Reference}
+\label{classMap}\index{Map@{Map}}
+
+
+The map for a game.  
+
+
+
+
+{\ttfamily \#include $<$Map.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMap_ad6de1992515299d7186942eac14a08c9}{Map}} (int=12, int=24)
+\begin{DoxyCompactList}\small\item\em Simplest Constructor for \mbox{\hyperlink{classMap}{Map}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMap_a67baeb951d767e4996e3a1c71705ad9b}{Map}} (int, int, int)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classMap}{Map}} with nbr\+Box and nbr\+Suns. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMap_aa403fbe09394ccf39747588f5168e3b2}{$\sim$\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classMap}{Map}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a3fe49f02edbe033a63278355956d3d91}{Generate\+All\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Generate randomly a map without symetry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a19bd4c8fac16b200cfb3b0b37e977fff}{Generate\+Half\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Generate randomly a map with horizontal or vertical symetry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a3756f0eef6e4364593c12c9a4d1d7218}{Generate\+Quarter\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Generate randomly a map with horizontal \& vertical symetry. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMap_a90465671af877ade9178ce2ecd66e907}{Get\+At\+Index}} (int posY, int posX) const
+\begin{DoxyCompactList}\small\item\em Get the content at the \mbox{[}posX,posY\mbox{]} tile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_aa0b9b5fbb556292bf137d895ec01b5aa}{Set\+At\+Index}} (int posY, int posX, int i)
+\begin{DoxyCompactList}\small\item\em Set the content at the \mbox{[}posX,posY\mbox{]} tile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_aa88d00c985b13f7faad9877357099490}{Print\+Map}} () const
+\begin{DoxyCompactList}\small\item\em Print the map on the terminal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The map for a game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMap_ad6de1992515299d7186942eac14a08c9}\label{classMap_ad6de1992515299d7186942eac14a08c9}} 
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Map\+::\+Map (\begin{DoxyParamCaption}\item[{int}]{height = {\ttfamily 12},  }\item[{int}]{width = {\ttfamily 24} }\end{DoxyParamCaption})}
+
+
+
+Simplest Constructor for \mbox{\hyperlink{classMap}{Map}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & = 12\+: The height of the map (by default 12) \\
+\hline
+{\em int} & = 24\+: The width of the map (by default 24) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An new object \mbox{\hyperlink{classGameController}{Game\+Controller}}
+\end{DoxyReturn}
+You need To call a generate\+Method before using it! \mbox{\Hypertarget{classMap_a67baeb951d767e4996e3a1c71705ad9b}\label{classMap_a67baeb951d767e4996e3a1c71705ad9b}} 
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Map\+::\+Map (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width,  }\item[{int}]{nbr\+Box }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classMap}{Map}} with nbr\+Box and nbr\+Suns. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & The height of the map (by default 12) \\
+\hline
+{\em int} & The width of the map (by default 24) \\
+\hline
+{\em int} & The number of box (by default 4) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An new object \mbox{\hyperlink{classGameController}{Game\+Controller}}
+\end{DoxyReturn}
+You need To call a generate\+Method before using it! \mbox{\Hypertarget{classMap_aa403fbe09394ccf39747588f5168e3b2}\label{classMap_aa403fbe09394ccf39747588f5168e3b2}} 
+\index{Map@{Map}!````~Map@{$\sim$Map}}
+\index{````~Map@{$\sim$Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{$\sim$Map()}{~Map()}}
+{\footnotesize\ttfamily Map\+::$\sim$\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{classMap}{Map}}. 
+
+delete boxs 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMap_a3fe49f02edbe033a63278355956d3d91}\label{classMap_a3fe49f02edbe033a63278355956d3d91}} 
+\index{Map@{Map}!GenerateAllMap@{GenerateAllMap}}
+\index{GenerateAllMap@{GenerateAllMap}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{GenerateAllMap()}{GenerateAllMap()}}
+{\footnotesize\ttfamily void Map\+::\+Generate\+All\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generate randomly a map without symetry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_a19bd4c8fac16b200cfb3b0b37e977fff}\label{classMap_a19bd4c8fac16b200cfb3b0b37e977fff}} 
+\index{Map@{Map}!GenerateHalfMap@{GenerateHalfMap}}
+\index{GenerateHalfMap@{GenerateHalfMap}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{GenerateHalfMap()}{GenerateHalfMap()}}
+{\footnotesize\ttfamily void Map\+::\+Generate\+Half\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generate randomly a map with horizontal or vertical symetry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_a3756f0eef6e4364593c12c9a4d1d7218}\label{classMap_a3756f0eef6e4364593c12c9a4d1d7218}} 
+\index{Map@{Map}!GenerateQuarterMap@{GenerateQuarterMap}}
+\index{GenerateQuarterMap@{GenerateQuarterMap}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{GenerateQuarterMap()}{GenerateQuarterMap()}}
+{\footnotesize\ttfamily void Map\+::\+Generate\+Quarter\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generate randomly a map with horizontal \& vertical symetry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_a90465671af877ade9178ce2ecd66e907}\label{classMap_a90465671af877ade9178ce2ecd66e907}} 
+\index{Map@{Map}!GetAtIndex@{GetAtIndex}}
+\index{GetAtIndex@{GetAtIndex}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{GetAtIndex()}{GetAtIndex()}}
+{\footnotesize\ttfamily int Map\+::\+Get\+At\+Index (\begin{DoxyParamCaption}\item[{int}]{posY,  }\item[{int}]{posX }\end{DoxyParamCaption}) const}
+
+
+
+Get the content at the \mbox{[}posX,posY\mbox{]} tile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & posY\+: position on the y axis \\
+\hline
+{\em int} & posX\+: position on the x axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the content of the tile 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_aa88d00c985b13f7faad9877357099490}\label{classMap_aa88d00c985b13f7faad9877357099490}} 
+\index{Map@{Map}!PrintMap@{PrintMap}}
+\index{PrintMap@{PrintMap}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{PrintMap()}{PrintMap()}}
+{\footnotesize\ttfamily void Map\+::\+Print\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Print the map on the terminal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_aa0b9b5fbb556292bf137d895ec01b5aa}\label{classMap_aa0b9b5fbb556292bf137d895ec01b5aa}} 
+\index{Map@{Map}!SetAtIndex@{SetAtIndex}}
+\index{SetAtIndex@{SetAtIndex}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{SetAtIndex()}{SetAtIndex()}}
+{\footnotesize\ttfamily void Map\+::\+Set\+At\+Index (\begin{DoxyParamCaption}\item[{int}]{posY,  }\item[{int}]{posX,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Set the content at the \mbox{[}posX,posY\mbox{]} tile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & posY\+: position on the y axis \\
+\hline
+{\em int} & posX\+: position on the x axis \\
+\hline
+{\em int} & i\+: The integer to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Null 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{Map_8hpp}{Map.\+hpp}}\item 
+src/\mbox{\hyperlink{Map_8cpp}{Map.\+cpp}}\end{DoxyCompactItemize}

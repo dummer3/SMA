@@ -1,0 +1,109 @@
+\hypertarget{Map_8hpp}{}\doxysection{includes/\+Map.hpp File Reference}
+\label{Map_8hpp}\index{includes/Map.hpp@{includes/Map.hpp}}
+
+
+Header for our \mbox{\hyperlink{classMap}{Map}} class.  
+
+
+{\ttfamily \#include \char`\"{}Box.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game\+Controller.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Object.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Player.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for Map.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Map_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Map_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMap}{Map}}
+\begin{DoxyCompactList}\small\item\em The map for a game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a9d41b042ff9e91186fe6c6587be36a6f}\label{Map_8hpp_a9d41b042ff9e91186fe6c6587be36a6f}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+A\+C\+K\+\_\+\+D\+EF} = \char`\"{}\textbackslash{}x1b\mbox{[}m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a98ae06d845315f81fb2eaa89bfe6e915}\label{Map_8hpp_a98ae06d845315f81fb2eaa89bfe6e915}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+A\+C\+K\+\_\+\+B\+L\+A\+CK} = \char`\"{}\textbackslash{}x1b\mbox{[}40m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_ac324a0372b0b768a96995083bfde5386}\label{Map_8hpp_ac324a0372b0b768a96995083bfde5386}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+A\+C\+K\+\_\+\+R\+ED} = \char`\"{}\textbackslash{}x1b\mbox{[}41m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_acf0d2581a961c5fbb88dd462560d57be}\label{Map_8hpp_acf0d2581a961c5fbb88dd462560d57be}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+A\+C\+K\+\_\+\+G\+R\+E\+EN} = \char`\"{}\textbackslash{}x1b\mbox{[}42m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a156bd3817745dd6f94dbd4c7964e704e}\label{Map_8hpp_a156bd3817745dd6f94dbd4c7964e704e}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+A\+C\+K\+\_\+\+Y\+E\+L\+L\+OW} = \char`\"{}\textbackslash{}x1b\mbox{[}43m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_abc8eb632b96e2f562132d8c6f8ec622b}\label{Map_8hpp_abc8eb632b96e2f562132d8c6f8ec622b}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+A\+C\+K\+\_\+\+B\+L\+UE} = \char`\"{}\textbackslash{}x1b\mbox{[}44m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a887e2b47d42d524b6778a44494b317d9}\label{Map_8hpp_a887e2b47d42d524b6778a44494b317d9}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+A\+C\+K\+\_\+\+M\+A\+G\+E\+N\+TA} = \char`\"{}\textbackslash{}x1b\mbox{[}45m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_afa8380ce5166453a284e4162dca7b575}\label{Map_8hpp_afa8380ce5166453a284e4162dca7b575}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+A\+C\+K\+\_\+\+C\+Y\+AN} = \char`\"{}\textbackslash{}x1b\mbox{[}46m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_aaece1c962712a05c67259921cbf46a41}\label{Map_8hpp_aaece1c962712a05c67259921cbf46a41}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+A\+C\+K\+\_\+\+W\+H\+I\+TE} = \char`\"{}\textbackslash{}x1b\mbox{[}47m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a87c5194e404b15b6f4ec2a1293f480f9}\label{Map_8hpp_a87c5194e404b15b6f4ec2a1293f480f9}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+D\+EF} = \char`\"{}\textbackslash{}x1b\mbox{[}m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a814e45925856b5e5a0a4292d9530daf6}\label{Map_8hpp_a814e45925856b5e5a0a4292d9530daf6}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+L\+A\+CK} = \char`\"{}\textbackslash{}x1b\mbox{[}30m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a115caf971a6bae71f63d16945ae30bb4}\label{Map_8hpp_a115caf971a6bae71f63d16945ae30bb4}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+R\+ED} = \char`\"{}\textbackslash{}x1b\mbox{[}31m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a401d1f2336066954e981c8726a6fc67e}\label{Map_8hpp_a401d1f2336066954e981c8726a6fc67e}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+G\+R\+E\+EN} = \char`\"{}\textbackslash{}x1b\mbox{[}32m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a89c2e2b402bd46e4c4e9089094f054e3}\label{Map_8hpp_a89c2e2b402bd46e4c4e9089094f054e3}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+Y\+E\+L\+L\+OW} = \char`\"{}\textbackslash{}x1b\mbox{[}33m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_abc3af810a9251c7c5aba1ed8d449566e}\label{Map_8hpp_abc3af810a9251c7c5aba1ed8d449566e}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+B\+L\+UE} = \char`\"{}\textbackslash{}x1b\mbox{[}34m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_aa2dcfbe706e2a7bd360e2fed843a6c19}\label{Map_8hpp_aa2dcfbe706e2a7bd360e2fed843a6c19}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+M\+A\+G\+E\+N\+TA} = \char`\"{}\textbackslash{}x1b\mbox{[}35m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_ad7134b06a1a02801b7e8d71d9e7305d6}\label{Map_8hpp_ad7134b06a1a02801b7e8d71d9e7305d6}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+C\+Y\+AN} = \char`\"{}\textbackslash{}x1b\mbox{[}36m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_a4bc2a4a697497c530347b0e558265361}\label{Map_8hpp_a4bc2a4a697497c530347b0e558265361}} 
+const std\+::string {\bfseries C\+O\+L\+O\+R\+\_\+\+W\+H\+I\+TE} = \char`\"{}\textbackslash{}x1b\mbox{[}37m\char`\"{}
+\item 
+\mbox{\Hypertarget{Map_8hpp_ac665ca39f51597334e93d87cd888e64a}\label{Map_8hpp_ac665ca39f51597334e93d87cd888e64a}} 
+const int {\bfseries M\+A\+X\+\_\+\+W\+I\+D\+TH} = 100
+\item 
+\mbox{\Hypertarget{Map_8hpp_a07c0544177d211db0865e2d041d4c251}\label{Map_8hpp_a07c0544177d211db0865e2d041d4c251}} 
+const int {\bfseries M\+A\+X\+\_\+\+H\+E\+I\+G\+HT} = 100
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header for our \mbox{\hyperlink{classMap}{Map}} class. 
+
+\begin{DoxyAuthor}{Author}
+Cliquot Théo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+21/01/2023 
+\end{DoxyDate}

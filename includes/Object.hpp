@@ -1,7 +1,7 @@
 /**
  *
  * \file Object.hpp
- * \brief Header for our Objects classes
+ * \brief Header for our Object classes
  * \author Matthias Benquet
  * \date 31/01/2023
  *
@@ -16,54 +16,49 @@
 /*                                                                           */
 /*****************************************************************************/
 
-// TODO: Maybe, each object is in its own file?
 #include "Iplaceable.hpp"
-
-class Player;
 
 /*****************************************************************************/
 /*                                                                           */
 /*                                Class                                      */
 /*                                                                           */
 /*****************************************************************************/
+
+class Player;
+
 /**
- * 
+ *
  * \class Object Object.hpp "includes/Object.hpp"
  * \brief Abstract class for all objects
- * 
-*/
+ *
+ */
 class Object {
 
   /******************************** Attributes ********************************/
-  
+
   /********************************* Methods **********************************/
-  public:
-    /**
-     * 
-     * \brief action when the object is used
-     * 
-     */
-    virtual void useEffect(Player*) = 0;
+public:
+  /**
+   *
+   * \brief action when the object is used
+   * \param Player *: The player who use it
+   */
+  virtual void useEffect(Player *) = 0;
 
-    /**
-     * 
-     * \brief action when the object hit a Player
-     * 
-     */
-    virtual void hitEffect(Player*) = 0;
+  /**
+   *
+   * \brief action when the object is hit
+   * \param Player *: The player who hit it
+   */
+  virtual void hitEffect(Player *) = 0;
 
-    /**
-     * 
-     * \brief destructor of the object
-     * 
-     */
-    virtual ~Object();
+  /**
+   *
+   * \brief destructor of the object
+   *
+   */
+  virtual ~Object();
 };
-
-
-
-
-
 
 /**
  * 
@@ -72,28 +67,31 @@ class Object {
  * 
 */
 class Mushroom : public Object {
-  public:
-    /**
-     * 
-     * \brief constructor of the mushroom
-     * 
-     */
-    Mushroom();
+public:
+  /**
+   *
+   * \brief constructor of the mushroom
+   *
+   */
+  Mushroom();
 
-    /**
-     * 
-     * \brief action when the mushroom is used
-     * 
-     */
-    void useEffect(Player*) override;
-    void hitEffect(Player*) override;
+  /**
+   *
+   * \brief action when the mushroom is used
+   * \param Player *: The player who use it
+   *
+   */
+  void useEffect(Player *) override;
+
+  /**
+   *
+   * \brief action when the Mushroom hit a Player
+   * \param Player *: The player who hit it
+   *
+   */
+
+  void hitEffect(Player *) override;
 };
-
-
-
-
-
-
 
 /**
  * 
@@ -102,41 +100,38 @@ class Mushroom : public Object {
  * 
 */
 class RedShell : public IPlaceable, public Object {
-  public:
-    /**
-     * 
-     * \brief constructor of the red shell
-     * 
-     */
-    RedShell();
-    RedShell(int, int, Direction);
+public:
+  /**
+   *
+   * \brief constructor of the red shell
+   *
+   */
+  RedShell();
+  RedShell(int, int, Direction);
 
-    /**
-     * 
-     * \brief action when the red shell is used
-     * 
-     */
-    void useEffect(Player*) override;
+  /**
+   *
+   * \brief action when the red shell is used
+   * \param Player *: The player who use it
+   *
+   */
+  void useEffect(Player *) override;
 
-    /**
-     * 
-     * \brief action when the red shell hit a Player
-     * 
-     */
-    void hitEffect(Player*) override;
+  /**
+   *
+   * \brief action when the red shell hit a Player
+   * \param Player *: The player who hit it
+   *
+   */
+  void hitEffect(Player *) override;
 
-    /**
-     * 
-     * \brief make the shell move
-     * 
-     */
-    void move();
+  /**
+   *
+   * \brief make the shell move
+   *
+   */
+  void move();
 };
-
-
-
-
-
 
 /**
  * 
@@ -158,6 +153,7 @@ public:
   /**
    *
    * \brief action when the banana is used
+   * \param Player *: The player who use it
    *
    */
   void useEffect(Player *) override;
@@ -165,13 +161,10 @@ public:
   /**
    *
    * \brief action when the banana hit a Player
+   * \param Player *: The player who hit it
    *
    */
   void hitEffect(Player *) override;
 };
-
-// TODO: Banana action when on the map? when used by the player?
-
-// TODO: Move other objects
 
 #endif // OBJECT_HPP

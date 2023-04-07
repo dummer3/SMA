@@ -10,10 +10,8 @@ Player::Player(Group *g)
   this->_group->AddPlayer(this);
 }
 
-Player::~Player()
-{
-  if (this->_object != nullptr)
-  {
+Player::~Player() {
+  if (this->_object != nullptr) {
     delete this->_object;
   }
 }
@@ -66,11 +64,9 @@ int Player::makeDecision() {
   }
 }
 
-void Player::useObject()
-{
+void Player::useObject() {
   // function of this object;
-  if (this->_object != nullptr)
-  {
+  if (this->_object != nullptr) {
     this->_object->useEffect(this);
     this->_object = nullptr;
   }

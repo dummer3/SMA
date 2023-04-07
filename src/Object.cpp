@@ -1,13 +1,52 @@
+/**
+ *
+ * \file Object.cpp
+ * \brief Source file for our Box class
+ * \author Benquet Matthias
+ * \date 31/01/2023
+ *
+ * For method description, see the header
+ *
+ **/
+
+/*****************************************************************************/
+/*                                                                           */
+/*                                Include                                    */
+/*                                                                           */
+/*****************************************************************************/
+
 #include "../includes/Object.hpp"
 #include "../includes/Player.hpp"
 
-Object::~Object() {
+/*****************************************************************************/
+/*                                                                           */
+/*                               Constructor                                 */
+/*                                                                           */
+/*****************************************************************************/
+Mushroom::Mushroom() {}
 
-}
+RedShell::RedShell() {}
 
-Mushroom::Mushroom() {
+RedShell::RedShell(int y, int x, Direction direction)
+    : IPlaceable(y, x, direction) {}
 
-}
+Banana::Banana() {}
+
+Banana::Banana(int y, int x) : IPlaceable(y, x) {}
+
+/*****************************************************************************/
+/*                                                                           */
+/*                                Destructor                                 */
+/*                                                                           */
+/*****************************************************************************/
+
+Object::~Object() {}
+
+/*****************************************************************************/
+/*                                                                           */
+/*                               Other Method                                */
+/*                                                                           */
+/*****************************************************************************/
 
 void Mushroom::useEffect(Player* player) {
   player->setBoostTimer(3);
@@ -15,16 +54,8 @@ void Mushroom::useEffect(Player* player) {
   delete this;
 }
 
-void Mushroom::hitEffect(Player* player) {
-    // does nothing
-}
-
-RedShell::RedShell() {
-
-}
-
-RedShell::RedShell(int y, int x, Direction direction) : IPlaceable(y, x, direction) {
-
+void Mushroom::hitEffect(Player *player) {
+  // does nothing right now
 }
 
 void RedShell::useEffect(Player* player) {
@@ -56,25 +87,21 @@ void RedShell::hitEffect(Player* player) {
 }
 
 void RedShell::move() {
-  switch(getDirection()) {
-    case Up:
-      setY(getY() - 1);
-      break;
-    case Down:
-      setY(getY() + 1);
-      break;
-    case Left:
-      setX(getX() - 1);
-      break;
-    case Right:
-      setX(getX() + 1);
-      break;
+  switch (getDirection()) {
+  case Up:
+    setY(getY() - 1);
+    break;
+  case Down:
+    setY(getY() + 1);
+    break;
+  case Left:
+    setX(getX() - 1);
+    break;
+  case Right:
+    setX(getX() + 1);
+    break;
   }
 }
-
-Banana::Banana() {}
-
-Banana::Banana(int y, int x) : IPlaceable(y, x) {}
 
 void Banana::useEffect(Player *player) {
   setX(player->getX());

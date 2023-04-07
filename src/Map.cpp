@@ -9,6 +9,12 @@
  *
  **/
 
+/*****************************************************************************/
+/*                                                                           */
+/*                                Include                                    */
+/*                                                                           */
+/*****************************************************************************/
+
 #include "../includes/Map.hpp"
 #include <typeinfo>
 
@@ -26,16 +32,16 @@ Map::Map(int height, int width, int nbrBox)
 
   memset(tiles, 0, sizeof(int) * MAX_WIDTH * MAX_HEIGHT);
 
-  InitBS();
+  InitB();
 }
 
 /*****************************************************************************/
 /*                                                                           */
-/*                                Destructor */
+/*                                Destructor                                 */
 /*                                                                           */
 /*****************************************************************************/
 
-Map::~Map() { DeleteBS(); }
+Map::~Map() { DeleteB(); }
 
 /*****************************************************************************/
 /*                                                                           */
@@ -47,7 +53,7 @@ Map::~Map() { DeleteBS(); }
 /*                              Private Method                               */
 /*****************************************************************************/
 
-void Map::InitBS() {
+void Map::InitB() {
   boxs = new Box *[this->nbrBox];
 
   for (int b = 0; b < nbrBox; b++) {
@@ -55,7 +61,7 @@ void Map::InitBS() {
   }
 }
 
-void Map::DeleteBS() {
+void Map::DeleteB() {
   for (int b = 0; b < nbrBox; b++)
     if (boxs[b] != nullptr) {
       delete boxs[b];
@@ -132,7 +138,7 @@ void Map::GenerateBorder() {
   memset(tiles, 0, sizeof(int) * MAX_WIDTH * MAX_HEIGHT);
 
   // Recreate our Suns and Boxs
-  InitBS();
+  InitB();
 
   // Horizontal Border
   for (int i = 0; i <= height; i++)
@@ -238,7 +244,7 @@ void Map::GeneratePlayer(int limitH, int limitW, int nbrPlayer) {
 void Map::GenerateAllMap() {
 
   // Delete previous Box and Sun
-  DeleteBS();
+  DeleteB();
 
   GenerateBorder();
 
@@ -254,7 +260,7 @@ void Map::GenerateAllMap() {
 void Map::GenerateHalfMap() {
 
   // Delete previous Box and Sun
-  DeleteBS();
+  DeleteB();
 
   // Verification for Box
   if (nbrBox % 2 != 0) {
@@ -325,7 +331,7 @@ void Map::GenerateHalfMap() {
 void Map::GenerateQuarterMap() {
 
   // Delete previous Box and Sun
-  DeleteBS();
+  DeleteB();
 
   // Verification for Box
   if (nbrBox % 4 != 0) {
@@ -434,9 +440,8 @@ void Map::PrintMap() const {
         } else {
           color = COLOR_BLUE + "OO";
         }
-      } else {
-        color = "  ";
       }
+      color = "  ";
 
       // choose the correct color
       Player *p = nullptr;
@@ -467,25 +472,24 @@ void Map::PrintMap() const {
           color += " >";
           break;
         }
-        // Loop on the objects
-        for (int i = 1; i < 80; i++) {
-          IPlaceable *o = GameController::Get()->objects[i];
-          if (o != nullptr && o->getY() == y && o->getX() == x) {
-            if (typeid(*o).name() == typeid(Banana).name()) {
-              color = COLOR_YELLOW + " B";
-            } else if (typeid(*o).name() == typeid(RedShell).name()) {
-              color = COLOR_RED + " R";
-            }
+      }
+      // Loop on the objects
+      for (int i = 1; i < 80; i++) {
+        IPlaceable *o = GameController::Get()->objects[i];
+        if (o != nullptr && o->getY() == y && o->getX() == x) {
+          if (typeid(*o).name() == typeid(Banana).name()) {
+            color = COLOR_YELLOW + " B";
+          } else if (typeid(*o).name() == typeid(RedShell).name()) {
+            color = COLOR_RED + " R";
           }
         }
-
-        // Print it!
-        std::cout << colorBack << color << COLOR_BACK_DEF << COLOR_DEF;
       }
-      std::cout << std::endl;
-    }
-  }
 
+      // Print it!
+      std::cout << colorBack << color << COLOR_BACK_DEF << COLOR_DEF;
+    }
+    std::cout << std::endl;
+  }
   // Place the map on the terminal correctly
   std::cout << "\033[2J";
 }
