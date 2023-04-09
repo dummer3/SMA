@@ -418,6 +418,20 @@ bool GameController::IsThereACloseEnemyFrom(const Player& player) {
   return found;
 }
 
+void GameController::showWinner() {
+  int group1Score = g1->getScore();
+  int group2Score = g2->getScore();
+
+  std::cout << "Game over" << std::endl;
+  if(group1Score == group2Score)
+    std::cout << "It's a tie !" << std::endl;
+  else
+    std::cout << "The winnner is : " << (group1Score > group2Score ? "Group 1" : "Group 2") << std::endl;
+    
+  std::cout << "Group 1 score : " << group1Score << std::endl;
+  std::cout << "Group 2 score : " << group2Score << std::endl;
+}
+
 /*****************************************************************************/
 /*                                                                           */
 /*                                Destructor                                 */

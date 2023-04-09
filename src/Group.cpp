@@ -47,3 +47,11 @@ bool Group::SameGroup(const Group *g) const { return g == this; }
 bool Group::OnMyGroup(const Player *p) const {
   return p != nullptr && p->getGroup() == this;
 }
+
+int Group::getScore() const {
+  int score = 0;
+  for (int i = 0; i < _num_player; i++) {
+    score += players[i]->getSunshine();
+  }
+  return score;
+}

@@ -133,6 +133,14 @@ public:
    **/
 
   bool OnMyGroup(const Player *p) const;
+
+  /**
+   * 
+   * \fn int getScore() const;
+   * \brief Get the score of the group
+   * \return int the score
+  */
+  int getScore() const;
 };
 
 #endif

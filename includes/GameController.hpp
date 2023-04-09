@@ -219,6 +219,15 @@ public:
   bool IsThereACloseEnemyFrom(const Player&);
 
   /**
+   * 
+   * \fn void showWinner();
+   * \brief Show which team has won the game
+   * \param None
+   * \return Null
+  */
+  void showWinner();
+
+  /**
    *
    * \fn static GameController *Get(int = 8);
    * \brief get the unique gameController or create one

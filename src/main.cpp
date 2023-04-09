@@ -29,6 +29,8 @@ int main(int argc, char **argv) {
     usleep(frame);
   }
 
+  g->showWinner();
+
   // Clean Everything
   g->Destroy();
   return 0;
